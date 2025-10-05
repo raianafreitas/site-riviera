@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem-vindo à Escola Riviera</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +14,9 @@
 
     <header>
         <nav class="navbar">
-            <a href="#" class="logo">Escola Riviera</a>
+            <a href="#inicio" class="logo">
+                <img src="assets/logo-principal.png.png" alt="Logo Escola Riviera">
+            </a>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#inicio" class="nav-link">Início</a></li>
                 <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
@@ -30,67 +33,98 @@
     </header>
 
     <main>
-        <section id="inicio" class="hero">
-            <img src="imagens/hero-banner.jpg.png" alt="Banner da campanha de matrículas 2026: Mais que ensino: apoio, estrutura e confiança para cada fase da infância.">
+        <section id="inicio" class="hero-slider">
+            <div class="slider-container">
+                <div class="slide"><img src="assets/banner-01.jpg.jpg" alt="Banner Matrículas Abertas 2026: Fale Conosco!"></div>
+                <div class="slide"><img src="assets/banner-02.jpg.jpg" alt="Banner Da educação infantil ao 4º ano"></div>
+                <div class="slide"><img src="assets/banner-03.jpg.jpg" alt="Banner Mais que ensino: apoio, estrutura e confiança"></div>
+            </div>
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
         </section>
 
-        <section id="sobre" class="content-section">
+        <section id="historia-previa" class="content-section">
             <div class="container">
-                <h2>Formando mentes e corações com método e suporte.</h2>
-                <p>A Escola Riviera é uma instituição de educação infantil privada que acredita na formação integral da criança por meio de uma abordagem sociointeracionista. Nossa proposta pedagógica está pautada na teoria de Vygotsky, valorizando a construção coletiva do conhecimento, os vínculos afetivos e o desenvolvimento das habilidades socioemocionais.</p>
-                
-                <div class="card-container">
-                    <div class="card"><h3>Missão</h3><p>Promover uma educação infantil que respeita cada fase do desenvolvimento, estimulando a criatividade, o vínculo afetivo e o crescimento emocional.</p></div>
-                    <div class="card"><h3>Visão</h3><p>Ser referência em educação infantil na região, reconhecida por oferecer uma aprendizagem dinâmica, criativa e acolhedora.</p></div>
-                    <div class="card"><h3>Valores</h3><p>Afetividade, Ética, Cooperação, Respeito às individualidades e Desenvolvimento socioemocional.</p></div>
-                </div>
+                <h2>Nossa História</h2>
+                <p class="historia-texto">Localizada em Lauro de Freitas, a Escola Riviera acredita na formação integral da criança. Com base em Vygotsky, entendemos que o conhecimento nasce da interação. Por isso, valorizamos os vínculos afetivos, a autonomia e a construção coletiva do saber para transformar a jornada de aprendizado, preparando os alunos para crescerem com equilíbrio, criatividade e confiança.</p>
+                <a href="#sobre" class="cta-button simple">Conheça nossa Proposta</a>
+            </div>
+        </section>
 
-                <div class="diferenciais">
-                     <div class="diferencial-item text-block">
-                        <h3>Nossos Diferenciais</h3>
-                        <ul>
-                            <li>✓ Ensino ativo e visual</li>
-                            <li>✓ Acompanhamento psicológico</li>
-                            <li>✓ Aula de música</li>
-                            <li>✓ Balé e capoeira</li>
-                        </ul>
+        <section id="sobre" class="content-section bg-light">
+            <div class="container">
+                <div class="sobre-container">
+                    <div class="sobre-texto">
+                        <h2>Sobre a Riviera</h2>
+                        <p>Nossa proposta pedagógica tem como base a abordagem sociointeracionista, inspirada nos estudos de Vygotsky. Acreditamos que o conhecimento é uma construção vibrante, que nasce da rica interação da criança com seus colegas, com os educadores e com o mundo à sua volta.</p>
+                        <div class="card-container">
+                            <div class="card"><h3>Missão</h3><p>Promover uma educação que respeita cada fase do desenvolvimento, estimulando a criatividade e o crescimento emocional.</p></div>
+                            <div class="card"><h3>Visão</h3><p>Ser referência em educação infantil na região, reconhecida por uma aprendizagem dinâmica, criativa e acolhedora.</p></div>
+                        </div>
                     </div>
-                    <div class="diferencial-item image-block">
-                        <img src="imagens/aluna-urso.png.png" alt="Aluna abraçando um urso de pelúcia">
+                    <div class="sobre-imagem">
+                        <img class="forma-fundo" src="assets/forma-azul.png.png" alt="Forma orgânica azul">
+                        <img class="aluna-foto" src="assets/aluna-urso.png.png" alt="Aluna abraçando urso">
                     </div>
                 </div>
             </div>
         </section>
 
+        <section id="proposta" class="content-section">
+            <div class="container">
+                <h2>Nossa Proposta Pedagógica</h2>
+                <p>Desenvolvemos nossas atividades fundamentadas nas competências exigidas na BNCC, com foco em estimular o pensamento científico, crítico e criativo, além da empatia e da comunicação. Entendemos que a educação deve equilibrar os quatro pilares do aprendizado: o **aprender a conhecer** e o **aprender a fazer** caminham lado a lado com o **aprender a ser** e o **aprender a conviver**, criando um ambiente seguro e afetivo para uma experiência escolar plena.</p>
+            </div>
+        </section>
+
         <section id="niveis" class="content-section bg-yellow">
             <div class="container">
-                 <div class="nivel-ensino">
+                <div class="nivel-ensino">
                     <div class="nivel-item image-block">
-                         <img src="imagens/aluna-livros.png.png" alt="Aluna segurando livros">
+                         <img src="assets/aluna-livros.png.png" alt="Aluna segurando livros">
+                         <img class="detalhe-amarelo" src="assets/forma-amarela.png.png" alt="Forma orgânica amarela">
                     </div>
                     <div class="nivel-item text-block">
                         <h2>Nossos Níveis de Ensino</h2>
-                        <p>Da primeira descoberta no berçário ao início da jornada da alfabetização, nossa proposta pedagógica é alinhada à BNCC e respeita cada fase do desenvolvimento infantil.</p>
                         <h4>Berçário (a partir de 6 meses)</h4><p>Um espaço de afeto e estímulos, focado no desenvolvimento motor e sensorial.</p>
-                        <h4>Educação Infantil (G1 ao G5)</h4><p>Uma fase de exploração e criatividade com projetos lúdicos, visuais e interativos.</p>
-                        <h4>Ensino Fundamental (1º ao 5º ano)</h4><p>O início da sistematização do conhecimento, com foco na alfabetização e no pensamento crítico.</p>
+                        <h4>Educação Infantil (G2 ao G5)</h4><p>Uma fase de exploração e criatividade com projetos lúdicos, visuais e interativos.</p>
+                        <h4>Ensino Fundamental (1º ao 4º ano)</h4><p>O início da sistematização do conhecimento, com foco na alfabetização e no pensamento crítico.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="matriculas" class="cta-section">
-            <div class="container cta-container">
-                 <div class="cta-item image-block">
-                    <img src="imagens/aluna-chamando.png.png" alt="Aluna chamando para matrículas">
+            <div class="container">
+                <h2>Aprender com método, crescer com suporte.</h2>
+                <div class="metodo-suporte-container">
+                    <div class="metodo-card">
+                        <h3>Aprender com Método</h3>
+                        <p>Nossas aulas são planejadas para ir além da memorização. Através de projetos em grupo e recursos visuais, o aprendizado se torna uma construção ativa e envolvente.</p>
+                    </div>
+                    <div class="metodo-card">
+                        <h3>Crescer com Suporte</h3>
+                        <p>Oferecemos um ambiente afetivo e seguro, com acompanhamento psicológico e atividades que fortalecem a autoestima e a segurança emocional.</p>
+                    </div>
                 </div>
-                <div class="cta-item text-block">
-                    <h2>Matrículas Abertas 2026!</h2>
-                    <p>Garanta o método e o suporte que seu filho(a) merece. As vagas são limitadas! Fale conosco e agende uma visita para conhecer nossa estrutura.</p>
-                    <a href="https://wa.me/message/NGKT6WIQPD3YA1" class="cta-button" target="_blank">Fale conosco no WhatsApp</a>
+                <a href="https://wa.me/message/NGKT6WIQPD3YA1" class="cta-button" target="_blank">VAGAS LIMITADAS! GARANTA JÁ A SUA.</a>
+            </div>
+        </section>
+
+         <section id="extras" class="content-section">
+            <div class="container extras-container">
+                <div class="extra-card instagram-card">
+                    <h3>Siga-nos no Instagram</h3>
+                    <p>Acompanhe nosso dia a dia, projetos e eventos especiais!</p>
+                    <a href="https://www.instagram.com/escolariviera.fr" class="cta-button simple" target="_blank">@escolariviera.fr</a>
+                </div>
+                <div class="extra-card map-card">
+                    <h3>Nossa Localização</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.043825700204!2d-38.3243260239335!3d-12.905007459146549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71611005697d841%3A0x8797f229b45b2046!2sR.%20Floresta%20Azul%2C%20289%20-%20Vida%20Nova%2C%20Lauro%20de%20Freitas%20-%20BA%2C%2042708-230!5e0!3m2!1spt-BR!2sbr!4v1696551079536!5m2!1spt-BR!2sbr" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer id="contato">
