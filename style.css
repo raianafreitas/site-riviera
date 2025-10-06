@@ -29,7 +29,7 @@ body {
 
 /* Estilos Gerais */
 .container {
-    max-width: 1100px;
+    max-width: 1200px; /* Aumentado para o novo layout */
     margin: 0 auto;
     padding: 0 30px;
 }
@@ -79,7 +79,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding: 0 1.5rem;
     height: 80px;
     max-width: 1200px;
     margin: 0 auto;
@@ -88,7 +88,7 @@ header {
     display: block;
 }
 .logo img {
-    height: 45px;
+    height: 55px; /* Logo maior */
     width: auto;
 }
 
@@ -103,18 +103,16 @@ header {
 .hero-slider {
     position: relative;
     width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
+    margin: 0;
     overflow: hidden;
-    border-radius: 15px;
 }
 .slider-container { display: flex; transition: transform 0.5s ease-in-out; }
 .slide { min-width: 100%; }
 .slide img { width: 100%; display: block; }
-.prev, .next { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 16px; color: white; font-weight: bold; font-size: 20px; background-color: rgba(0, 0, 0, 0.3); border: none; user-select: none; transition: background-color 0.3s ease; }
-.prev { left: 15px; border-radius: 50%; width: 50px; height: 50px; }
-.next { right: 15px; border-radius: 50%; width: 50px; height: 50px; }
-.prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.6); }
+.prev, .next { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 16px; color: white; font-weight: bold; font-size: 20px; background-color: rgba(0, 0, 0, 0.4); border: none; user-select: none; transition: background-color 0.3s ease; border-radius: 50%; width: 50px; height: 50px; }
+.prev { left: 20px; }
+.next { right: 20px; }
+.prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.7); }
 
 .progress-bar-container {
     position: absolute;
@@ -122,7 +120,7 @@ header {
     left: 0;
     width: 100%;
     height: 5px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 .progress-bar {
     height: 100%;
@@ -186,7 +184,7 @@ header {
 .extra-card { flex: 1; padding: 30px; border-radius: 15px; }
 .instagram-card { background-color: var(--cinza-claro); }
 .map-card { padding: 0; overflow: hidden; }
-.map-card iframe { border-radius: 15px; }
+.map-card iframe { border-radius: 15px; display: block; }
 
 /* Footer */
 footer { background-color: var(--texto-escuro); color: var(--texto-claro); padding: 40px 0 20px; }
@@ -196,18 +194,21 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
 
 /* Responsividade */
 @media(max-width: 768px) {
-    .navbar { justify-content: space-between; position: relative; }
-    .logo { position: absolute; left: 50%; transform: translateX(-50%); }
-    .hamburger { z-index: 2; }
+    .top-bar { display: none; }
+    html { scroll-padding-top: 80px; }
+    .navbar { justify-content: flex-end; position: relative; }
+    .logo { position: absolute; left: 50%; transform: translateX(-50%); z-index: 1001; }
+    .logo img { height: 55px; }
+    .hamburger { z-index: 1002; display: block; }
     .nav-links-container { display: none; }
     
     h2 { font-size: 1.8rem; line-height: 1.3; }
     .proposta-titulo { font-size: 1.8rem; line-height: 1.35 !important; }
     
-    .nav-menu { position: fixed; left: -100%; top: 80px; flex-direction: column; background-color: var(--branco); width: 100%; text-align: center; transition: 0.3s; z-index: 999; }
+    .nav-menu { position: fixed; left: -100%; top: 0; flex-direction: column; background-color: var(--branco); width: 100%; height: 100vh; text-align: center; transition: 0.3s; z-index: 1000; justify-content: center; }
     .nav-menu.active { left: 0; }
-    .nav-item { margin: 16px 0; }
-    .hamburger { display: block; }
+    .nav-item { margin: 20px 0; }
+    
     .hamburger.active .bar:nth-child(2) { opacity: 0; }
     .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
