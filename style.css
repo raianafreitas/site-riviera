@@ -89,7 +89,7 @@ header {
     display: block;
 }
 .logo img {
-    height: 60px; /* Logo maior */
+    height: 60px;
     width: auto;
 }
 
@@ -108,13 +108,16 @@ header {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     line-height: 0; 
+    /* A MÁGICA ESTÁ AQUI: Força a proporção correta */
+    aspect-ratio: 1920 / 800;
 }
 
-.slider-container { display: flex; transition: transform 0.5s ease-in-out; }
-.slide { min-width: 100%; }
+.slider-container { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
+.slide { min-width: 100%; height: 100%; }
 .slide img { 
     width: 100%; 
-    height: auto; /* A altura será automática baseada na largura */
+    height: 100%;
+    object-fit: cover; /* Cobre o espaço para não distorcer */
     display: block;
 }
 
