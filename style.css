@@ -103,20 +103,17 @@ header {
 .hamburger { display: none; cursor: pointer; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--texto-escuro); transition: all 0.3s ease-in-out; }
 
-/* Carrossel Hero Banner - SOLUÇÃO FINAL PARA LARGURA TOTAL E BORDAS */
-.hero-wrapper { /* Novo wrapper para aplicar a margem e centralizar o carousel */
-    max-width: 1200px; /* Largura máxima para o carousel */
-    margin: 30px auto; /* Centraliza e dá espaço em cima/baixo */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra */
-    border-radius: 15px; /* Bordas arredondadas */
-    overflow: hidden; /* Garante que os cantos arredondados sejam respeitados */
-}
-
+/* Carrossel Hero Banner - VERSÃO FINAL COM A PROPORÇÃO CORRETA */
 .hero-slider {
     position: relative;
-    width: 100%; /* Ocupa 100% da largura do seu wrapper */
+    max-width: 1200px;
+    margin: 30px auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     line-height: 0;
-    aspect-ratio: 1920 / 580; /* Proporção exata da sua nova imagem */
+    /* Força a proporção exata que você encontrou */
+    aspect-ratio: 1920 / 580; 
 }
     
 .slider-container { 
@@ -133,7 +130,7 @@ header {
 .slide img { 
     width: 100%; 
     height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha, cobrindo se necessário */
+    object-fit: cover;
     display: block;
 }
 
@@ -203,7 +200,7 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
 .footer-copy { text-align: center; font-size: 0.9rem; border-top: 1px solid #444; padding-top: 20px; }
 
 @media(max-width: 1200px) {
-    .hero-wrapper { border-radius: 0; margin-top: 0; margin-bottom: 0; box-shadow: none;}
+    .hero-slider { border-radius: 0; margin-top: 0; margin-bottom: 0; }
 }
 
 @media(max-width: 768px) {
