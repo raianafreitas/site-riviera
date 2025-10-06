@@ -103,17 +103,17 @@ header {
 .hamburger { display: none; cursor: pointer; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--texto-escuro); transition: all 0.3s ease-in-out; }
 
-/* Carrossel Hero Banner - VERSÃO FINAL COM A PROPORÇÃO CORRETA */
+/* Carrossel Hero Banner - VERSÃO FINAL, LARGURA TOTAL, ALTURA ELEGANTE, SOMBRA, RETO */
 .hero-slider {
     position: relative;
-    max-width: 1200px;
-    margin: 30px auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%; /* LARGURA TOTAL de ponta a ponta */
+    margin: 0;   /* Remove margens laterais para ocupar 100% */
+    border-radius: 0; /* Bordas retas, sem arredondamento */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
     overflow: hidden;
     line-height: 0;
-    /* Força a proporção exata que você encontrou */
-    aspect-ratio: 1920 / 580; 
+    /* Ajuste da proporção para a altura desejada, sem cortar o banner */
+    aspect-ratio: 1920 / 480; /* Recalculado para altura elegante e sem corte */
 }
     
 .slider-container { 
@@ -130,11 +130,27 @@ header {
 .slide img { 
     width: 100%; 
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
     display: block;
 }
 
-.prev, .next { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 16px; color: white; font-weight: bold; font-size: 20px; background-color: rgba(0, 0, 0, 0.4); border: none; user-select: none; transition: background-color 0.3s ease; border-radius: 50%; width: 50px; height: 50px; }
+.prev, .next { 
+    cursor: pointer; 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    padding: 16px; 
+    color: white; 
+    font-weight: bold; 
+    font-size: 20px; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    border: none; 
+    user-select: none; 
+    transition: background-color 0.3s ease; 
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+}
 .prev { left: 20px; }
 .next { right: 20px; }
 .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.7); }
@@ -224,3 +240,4 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
     .nivel-item.image-block { order: -1; margin-bottom: 30px; }
     .cta-titulo { line-height: 1.3; }
 }
+
