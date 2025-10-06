@@ -1,168 +1,300 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-vindo à Escola Riviera</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png.png">
-    <link rel="stylesheet" href="style.css?v=FINAL-MAPA"> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="top-bar">
-        <div class="container top-bar-content">
-            <span>(71) 99675-2805</span>
-            <span>@escolariviera.fr</span>
-        </div>
-    </div>
-    <header>
-        <nav class="navbar">
-            <a href="#inicio" class="logo">
-                <img src="assets/logo-principal.png.png" alt="Logo Escola Riviera">
-            </a>
-            <div class="nav-links-container">
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="#inicio" class="nav-link">Início</a></li>
-                    <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
-                    <li class="nav-item"><a href="#niveis" class="nav-link">Níveis de Ensino</a></li>
-                    <li class="nav-item"><a href="#matriculas" class="nav-link">Matrículas</a></li>
-                    <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
-                </ul>
-            </div>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </nav>
-    </header>
+/* Reset Básico e Fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <main>
-        <section id="inicio" class="hero-slider">
-            <div class="slider-container">
-                <div class="slide"><img src="assets/banner-01.png.png" alt="Banner Matrículas Abertas 2026: Fale Conosco!"></div>
-                <div class="slide"><img src="assets/banner-02.png.png" alt="Banner Da educação infantil ao 4º ano"></div>
-                <div class="slide"><img src="assets/banner-03.png.png" alt="Banner Mais que ensino: apoio, estrutura e confiança"></div>
-            </div>
-            <button class="prev">❮</button>
-            <button class="next">❯</button>
-            <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-            </div>
-        </section>
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px; 
+}
 
-        <section id="historia-previa" class="content-section">
-            <div class="container">
-                <h2>Nossa História</h2>
-                <p class="historia-texto">Localizada em Lauro de Freitas, a Escola Riviera acredita na formação integral da criança. Com base em Vygotsky, entendemos que o conhecimento nasce da interação. Por isso, valorizamos os vínculos afetivos, a autonomia e a construção coletiva do saber para transformar a jornada de aprendizado, preparando os alunos para crescerem com equilíbrio, criatividade e confiança.</p>
-                <a href="#sobre" class="cta-button simple">Conheça nossa Proposta</a>
-            </div>
-        </section>
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #fcfcfd;
+}
 
-        <section id="sobre" class="content-section bg-light separator">
-            <div class="container">
-                <div class="sobre-container">
-                    <div class="sobre-texto">
-                        <h2>Sobre a Riviera</h2>
-                        <p>Nossa proposta pedagógica tem como base a abordagem sociointeracionista, inspirada nos estudos de Vygotsky. Acreditamos que o conhecimento é uma construção vibrante, que nasce da rica interação da criança com seus colegas, com os educadores e com o mundo à sua volta.</p>
-                        <div class="card-container">
-                            <div class="card"><h3>Missão</h3><p>Promover uma educação que respeita cada fase do desenvolvimento, estimulando a criatividade e o crescimento emocional.</p></div>
-                            <div class="card"><h3>Visão</h3><p>Ser referência em educação infantil na região, reconhecida por uma aprendizagem dinâmica, criativa e acolhedora.</p></div>
-                        </div>
-                    </div>
-                    <div class="sobre-imagem">
-                        <div class="image-frame-circle">
-                           <img class="aluna-foto" src="assets/aluna-urso.png.png" alt="Aluna abraçando urso">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+/* Variáveis de Cor */
+:root {
+    --azul-riviera: #1c68d3;
+    --amarelo: #febb15;
+    --branco: #fcfcfd;
+    --texto-escuro: #2c3e50;
+    --texto-claro: #fcfcfd;
+    --cinza-claro: #f4f7f6;
+}
 
-        <section id="proposta" class="content-section separator">
-            <div class="container">
-                <h2 class="proposta-titulo">Nossa Proposta Pedagógica</h2>
-                <p class="texto-justificado">A nossa base pedagógica é a abordagem sociointeracionista, inspirada nos estudos de Vygotsky. Acreditamos que o conhecimento é uma construção vibrante, que nasce da rica interação da criança com seus colegas, com os educadores e com o mundo à sua volta. Neste processo, o professor atua como um mediador experiente, guiando os alunos na organização do saber coletivo e no desenvolvimento de um relacionamento socioemocional saudável.</p>
-                <p class="texto-justificado"><strong>Desenvolvemos nossas atividades fundamentadas nas competências exigidas na BNCC,</strong> com foco em estimular o pensamento científico, crítico e criativo, além da empatia, da comunicação e de outras habilidades essenciais para uma atuação consciente e colaborativa no mundo contemporâneo.</p>
-                <p class="texto-justificado">Entendemos que a educação deve equilibrar os quatro pilares do aprendizado: o <strong>aprender a conhecer</strong> e o <strong>aprender a fazer</strong> caminham lado a lado com o <strong>aprender a ser</strong> e o <strong>aprender a conviver</strong>. Por isso, reforçamos em nosso dia a dia a aplicação dos aspectos psicológicos, sociais e emocionais, criando um ambiente seguro e afetivo que é a base para uma experiência de vida escolar plena e feliz.</p>
-            </div>
-        </section>
+/* Estilos Gerais */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
 
-        <section id="niveis" class="content-section bg-yellow separator">
-            <div class="container">
-                <div class="nivel-ensino">
-                    <div class="nivel-item image-block">
-                        <div class="image-frame-circle">
-                            <img class="aluna-foto" src="assets/aluna-livros.png.png" alt="Aluna segurando livros">
-                        </div>
-                    </div>
-                    <div class="nivel-item text-block">
-                        <h2>Nossos Níveis de Ensino</h2>
-                        <h4>Berçário (a partir de 6 meses)</h4><p>Um espaço de afeto e estímulos, focado no desenvolvimento motor e sensorial.</p>
-                        <h4>Educação Infantil (G2 ao G5)</h4><p>Uma fase de exploração e criatividade com projetos lúdicos, visuais e interativos.</p>
-                        <h4>Ensino Fundamental (1º ao 4º ano)</h4><p>O início da sistematização do conhecimento, com foco na alfabetização e no pensamento crítico.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+h2 {
+    font-size: 2.5rem;
+    color: var(--azul-riviera);
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.2;
+}
+.content-section {
+    padding: 80px 0;
+}
+.bg-light {
+    background-color: var(--cinza-claro);
+}
 
-        <section id="matriculas" class="cta-section">
-            <div class="container">
-                <h2 class="cta-titulo">Aprender com método, crescer com suporte.</h2>
-                <div class="metodo-suporte-container">
-                    <div class="metodo-card">
-                        <h3>Aprender com Método</h3>
-                        <p>Nossas aulas são planejadas para ir além da memorização. Através de projetos em grupo e recursos visuais, o aprendizado se torna uma construção ativa e envolvente.</p>
-                    </div>
-                    <div class="metodo-card">
-                        <h3>Crescer com Suporte</h3>
-                        <p>Oferecemos um ambiente afetivo e seguro, com acompanhamento psicológico e atividades que fortalecem a autoestima e a segurança emocional.</p>
-                    </div>
-                </div>
-                <a href="https://wa.me/message/NGKT6WIQPD3YA1" class="cta-button" target="_blank">VAGAS LIMITADAS! GARANTA JÁ A SUA.</a>
-            </div>
-        </section>
+.separator {
+    border-bottom: 1px solid #e0e0e0;
+}
 
-         <section id="extras" class="content-section">
-            <div class="container extras-container">
-                <div class="extra-card instagram-card">
-                    <h3>Siga-nos no Instagram</h3>
-                    <p>Acompanhe nosso dia a dia, projetos e eventos especiais!</p>
-                    <a href="https://www.instagram.com/escolariviera.fr" class="cta-button simple" target="_blank">@escolariviera.fr</a>
-                </div>
-                <div class="extra-card map-card">
-                    <h3>Nossa Localização</h3>
-                    <div class="map-container">
-                        <a href="https://maps.app.goo.gl/brToDHeM2WjC5sSZ6" target="_blank" class="map-link">
-                            <img src="assets/mapa.png" alt="Mapa da localização da Escola Riviera">
-                            <div class="map-overlay"><span>Ver no Google Maps</span></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+/* Barra do Topo */
+.top-bar {
+    background-color: var(--azul-riviera);
+    color: var(--branco);
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+}
+.top-bar-content {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
 
-    </main>
+/* Header e Navegação */
+header {
+    background-color: var(--branco);
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
 
-    <footer id="contato">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h4>Escola Riviera</h4>
-                    <p>R. Floresta Azul, 289, Vida Nova | Lauro de Freitas</p>
-                    <p>Atendimento: Segunda a Sexta, das 8h às 16h.</p>
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/escolariviera.fr" target="_blank">Instagram</a>
-                    <a href="https://wa.me/message/NGKT6WIQPD3YA1" target="_blank">WhatsApp</a>
-                </div>
-            </div>
-            <p class="footer-copy">© 2025 Escola Riviera. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+.nav-links-container {
+    display: block;
+}
+.logo img {
+    height: 60px; 
+    width: auto;
+}
 
-    <script src="script.js?v=FINAL-MAPA"></script>
-</body>
-</html>
+.nav-menu { display: flex; list-style: none; }
+.nav-item { margin-left: 25px; }
+.nav-link { text-decoration: none; color: var(--texto-escuro); font-weight: 600; transition: color 0.3s ease; }
+.nav-link:hover { color: var(--azul-riviera); }
+.hamburger { display: none; cursor: pointer; }
+.bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--texto-escuro); transition: all 0.3s ease-in-out; }
+
+/* Carrossel Hero Banner */
+.hero-slider {
+    position: relative;
+    max-width: 1200px;
+    margin: 30px auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    line-height: 0;
+    aspect-ratio: 1920 / 580; 
+}
+    
+.slider-container { 
+    display: flex; 
+    height: 100%;
+    transition: transform 0.5s ease-in-out; 
+}
+    
+.slide { 
+    min-width: 100%;
+    height: 100%;
+}
+    
+.slide img { 
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.prev, .next { 
+    cursor: pointer; 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    padding: 16px; 
+    color: white; 
+    font-weight: bold; 
+    font-size: 20px; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    border: none; 
+    user-select: none; 
+    transition: background-color 0.3s ease; 
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+}
+.prev { left: 20px; }
+.next { right: 20px; }
+.prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.7); }
+
+.progress-bar-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.progress-bar {
+    height: 100%;
+    background-color: var(--amarelo);
+    width: 0%;
+}
+
+/* Seções Restantes... */
+#historia-previa { text-align: center; }
+.historia-texto { max-width: 800px; margin: 0 auto 30px; }
+.cta-button.simple { background-color: transparent; color: var(--azul-riviera); border: 2px solid var(--azul-riviera); padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; }
+.cta-button.simple:hover { background-color: var(--azul-riviera); color: var(--branco); }
+
+.sobre-container { display: flex; align-items: center; gap: 40px; }
+.sobre-texto { flex: 1.2; }
+.sobre-imagem { flex: 1; text-align: center; }
+.image-frame-circle { width: 300px; height: 300px; border-radius: 50%; overflow: hidden; position: relative; display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 8px solid var(--branco); }
+.image-frame-circle .aluna-foto { width: 100%; height: 100%; object-fit: cover; }
+.card-container { display: flex; gap: 15px; margin-top: 30px; }
+.card { background: var(--branco); padding: 20px; border-radius: 15px; flex: 1; text-align: left; border: 1px solid #ddd; }
+.card h3 { color: var(--azul-riviera); font-size: 1.2rem; }
+.card p { font-size: 0.9rem; }
+
+#proposta { text-align: center; }
+.proposta-titulo { line-height: 1.3; }
+#proposta .texto-justificado { max-width: 800px; margin: 0 auto 20px; text-align: justify; }
+
+.bg-yellow { background-color: var(--amarelo); }
+.bg-yellow .container { background: var(--branco); border-radius: 20px; padding: 50px; }
+.nivel-ensino { display: flex; align-items: center; gap: 40px; }
+.nivel-item.text-block { flex: 1.5; }
+.nivel-item.text-block h4 { color: var(--azul-riviera); font-size: 1.2rem; margin-top: 15px; }
+.nivel-item.image-block { flex: 1; text-align: center; }
+.nivel-item.image-block .image-frame-circle { width: 250px; height: 250px; }
+
+.cta-section { background-color: var(--azul-riviera); color: var(--texto-claro); text-align: center; padding: 80px 0; }
+.cta-titulo { color: var(--amarelo); padding-top: 20px; }
+.metodo-suporte-container { display: flex; gap: 30px; margin: 40px 0; }
+.metodo-card { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; flex: 1; }
+.cta-button { display: inline-block; background-color: var(--amarelo); color: var(--texto-escuro); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 20px; transition: transform 0.3s ease; font-size: 1.2rem; }
+.cta-button:hover { transform: scale(1.05); }
+
+/* Extras: Instagram e Mapa - CÓDIGO CORRIGIDO */
+.extras-container { 
+    display: flex; 
+    gap: 30px; 
+    align-items: flex-start; /* Alinha os cards pelo topo */
+}
+.extra-card { 
+    flex: 1; 
+    border-radius: 15px; 
+}
+.instagram-card { 
+    background-color: var(--cinza-claro); 
+    padding: 30px;
+    text-align: center;
+}
+.map-card { 
+    padding: 30px;
+    background-color: var(--cinza-claro); 
+}
+.map-card h3 {
+    text-align: left;
+    color: var(--texto-escuro);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.map-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.map-container .map-link { 
+    display: block; 
+    text-decoration: none; 
+}
+.map-container img { 
+    display: block; 
+    width: 100%; 
+    height: auto; 
+}
+.map-overlay { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background-color: rgba(0,0,0,0.3); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+.map-overlay span { 
+    color: white; 
+    font-weight: 600; 
+    padding: 10px 20px; 
+    background-color: var(--azul-riviera); 
+    border-radius: 50px; 
+}
+.map-container:hover .map-overlay { 
+    opacity: 1; 
+}
+
+footer { background-color: var(--texto-escuro); color: var(--texto-claro); padding: 40px 0 20px; }
+.footer-content { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.footer-social a { color: var(--texto-claro); margin-left: 15px; text-decoration: none; font-weight: 600; }
+.footer-copy { text-align: center; font-size: 0.9rem; border-top: 1px solid #444; padding-top: 20px; }
+
+@media(max-width: 1200px) {
+    .hero-slider { border-radius: 0; margin-top: 0; margin-bottom: 0; }
+}
+
+@media(max-width: 768px) {
+    .top-bar { display: none; }
+    html { scroll-padding-top: 80px; }
+    .navbar { justify-content: flex-end; position: relative; }
+    .logo { position: absolute; left: 50%; transform: translateX(-50%); z-index: 1001; }
+    .logo img { height: 60px; }
+    .hamburger { z-index: 1002; display: block; }
+    .nav-links-container { display: none; }
+    h2 { font-size: 1.8rem; line-height: 1.3; }
+    .proposta-titulo { font-size: 1.8rem; line-height: 1.35 !important; }
+    .nav-menu { position: fixed; left: -100%; top: 0; flex-direction: column; background-color: var(--branco); width: 100%; height: 100vh; text-align: center; transition: 0.3s; z-index: 1000; justify-content: center; }
+    .nav-menu.active { left: 0; }
+    .nav-item { margin: 20px 0; }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    .sobre-container, .nivel-ensino, .metodo-suporte-container, .extras-container { flex-direction: column; }
+    .sobre-imagem { margin-top: 40px; }
+    .nivel-item.image-block { order: -1; margin-bottom: 30px; }
+    .cta-titulo { line-height: 1.3; }
+    .map-card h3 { text-align: center; }
+    .map-overlay { opacity: 1; background-color: rgba(0,0,0,0.5); }
+}
