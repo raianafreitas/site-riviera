@@ -17,56 +17,49 @@ document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", 
 let slideIndex = 0;
 const slides = document.querySelectorAll(".slide");
 const slideContainer = document.querySelector(".slider-container");
+const progressBar = document.querySelector('.progress-bar');
 const totalSlides = slides.length;
+const slideIntervalTime = 5000; // 5 segundos
 
-// Clone os primeiros slides para o final para o efeito de loop infinito
-for (let i = 0; i < totalSlides; i++) {
-    slideContainer.appendChild(slides[i].cloneNode(true));
-}
-
-function showSlides() {
-    slideIndex++;
-    
+function updateSlidePosition() {
     slideContainer.style.transition = "transform 0.5s ease-in-out";
     slideContainer.style.transform = `translateX(${-slideIndex * 100}%)`;
-
-    // Reset para o início quando chegar ao final dos clones
-    if (slideIndex === totalSlides) {
+    
+    if(progressBar) {
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '0%';
         setTimeout(() => {
-            slideContainer.style.transition = "none";
-            slideIndex = 0;
-            slideContainer.style.transform = `translateX(0)`;
-        }, 500);
+            progressBar.style.transition = `width ${slideIntervalTime / 1000}s linear`;
+            progressBar.style.width = '100%';
+        }, 50);
     }
 }
 
-// Inicia o carrossel automático a cada 5 segundos
-let slideInterval = setInterval(showSlides, 5000);
+function nextSlide() {
+    slideIndex = (slideIndex + 1) % totalSlides;
+    updateSlidePosition();
+}
 
-// Botões de Próximo e Anterior
+let slideInterval = setInterval(nextSlide, slideIntervalTime);
+
 const nextBtn = document.querySelector('.next');
 const prevBtn = document.querySelector('.prev');
 
+function resetInterval() {
+    clearInterval(slideInterval);
+    updateSlidePosition();
+    slideInterval = setInterval(nextSlide, slideIntervalTime);
+}
+
 nextBtn.addEventListener('click', () => {
-    clearInterval(slideInterval); // Para o automático
-    showSlides();
-    slideInterval = setInterval(showSlides, 5000); // Reinicia
+    slideIndex = (slideIndex + 1) % totalSlides;
+    resetInterval();
 });
 
 prevBtn.addEventListener('click', () => {
-    clearInterval(slideInterval);
-    
-    if (slideIndex === 0) {
-        slideContainer.style.transition = "none";
-        slideIndex = totalSlides;
-        slideContainer.style.transform = `translateX(${-slideIndex * 100}%)`;
-    }
-    
-    setTimeout(() => {
-        slideIndex--;
-        slideContainer.style.transition = "transform 0.5s ease-in-out";
-        slideContainer.style.transform = `translateX(${-slideIndex * 100}%)`;
-    }, 50); // Pequeno delay para o reposicionamento ser invisível
-    
-    slideInterval = setInterval(showSlides, 5000);
+    slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+    resetInterval();
 });
+
+// A lógica de mover o menu no mobile foi removida pois é mais simples e robusta via CSS
+// e a estrutura do HTML foi ajustada para isso.
