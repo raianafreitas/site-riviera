@@ -21,6 +21,7 @@ body {
 :root {
     --azul-riviera: #1c68d3;
     --amarelo: #febb15;
+    --laranja: #ff7e2c;
     --branco: #fcfcfd;
     --texto-escuro: #2c3e50;
     --texto-claro: #fcfcfd;
@@ -99,76 +100,35 @@ header {
 .nav-menu { display: flex; list-style: none; }
 .nav-item { margin-left: 25px; }
 .nav-link { text-decoration: none; color: var(--texto-escuro); font-weight: 600; transition: color 0.3s ease; }
-.nav-link:hover { color: var(--azul-riviera); }
+.nav-link:hover, .nav-link.active {
+    color: var(--laranja);
+}
 .hamburger { display: none; cursor: pointer; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--texto-escuro); transition: all 0.3s ease-in-out; }
 
-/* Carrossel Hero Banner - VERSÃO FINAL, LARGURA TOTAL, ALTURA ELEGANTE, SOMBRA, RETO */
+/* Carrossel Hero Banner */
 .hero-slider {
     position: relative;
-    width: 100%; /* LARGURA TOTAL de ponta a ponta */
-    margin: 0;   /* Remove margens laterais para ocupar 100% */
-    border-radius: 0; /* Bordas retas, sem arredondamento */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    max-width: 1200px;
+    margin: 30px auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     line-height: 0;
-    /* Ajuste da proporção para a altura desejada, sem cortar o banner */
-    aspect-ratio: 1920 / 480; /* Recalculado para altura elegante e sem corte */
+    aspect-ratio: 792 / 239; 
 }
     
-.slider-container { 
-    display: flex; 
-    height: 100%;
-    transition: transform 0.5s ease-in-out; 
-}
-    
-.slide { 
-    min-width: 100%;
-    height: 100%;
-}
-    
-.slide img { 
-    width: 100%; 
-    height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
-    display: block;
-}
+.slider-container { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
+.slide { min-width: 100%; height: 100%; }
+.slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.prev, .next { 
-    cursor: pointer; 
-    position: absolute; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    padding: 16px; 
-    color: white; 
-    font-weight: bold; 
-    font-size: 20px; 
-    background-color: rgba(0, 0, 0, 0.4); 
-    border: none; 
-    user-select: none; 
-    transition: background-color 0.3s ease; 
-    border-radius: 50%; 
-    width: 50px; 
-    height: 50px; 
-}
+.prev, .next { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 16px; color: white; font-weight: bold; font-size: 20px; background-color: rgba(0, 0, 0, 0.4); border: none; user-select: none; transition: background-color 0.3s ease; border-radius: 50%; width: 50px; height: 50px; }
 .prev { left: 20px; }
 .next { right: 20px; }
 .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.7); }
 
-.progress-bar-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background-color: rgba(0, 0, 0, 0.2);
-}
-.progress-bar {
-    height: 100%;
-    background-color: var(--amarelo);
-    width: 0%;
-}
-
+.progress-bar-container { position: absolute; bottom: 0; left: 0; width: 100%; height: 5px; background-color: rgba(0, 0, 0, 0.2); }
+.progress-bar { height: 100%; background-color: var(--amarelo); width: 0%; }
 
 /* Seções Restantes... */
 #historia-previa { text-align: center; }
@@ -205,64 +165,11 @@ header {
 .cta-button { display: inline-block; background-color: var(--amarelo); color: var(--texto-escuro); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 20px; transition: transform 0.3s ease; font-size: 1.2rem; }
 .cta-button:hover { transform: scale(1.05); }
 
-/* Extras: Instagram e Mapa */
-.extras-container { 
-    display: flex; 
-    gap: 30px; 
-    align-items: flex-start;
-}
-.extra-card { 
-    flex: 1; 
-    border-radius: 15px; 
-    background-color: var(--cinza-claro);
-    padding: 30px;
-}
-.instagram-card { 
-    text-align: center;
-}
-.map-card h3 {
-    text-align: left;
-    color: var(--texto-escuro);
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-.map-container {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-}
-.map-container .map-link { 
-    display: block; 
-    text-decoration: none; 
-}
-.map-container img { 
-    display: block; 
-    width: 100%; 
-    height: auto; 
-}
-.map-overlay { 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0; 
-    background-color: rgba(0,0,0,0.3); 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    opacity: 0; 
-    transition: opacity 0.3s ease; 
-}
-.map-overlay span { 
-    color: white; 
-    font-weight: 600; 
-    padding: 10px 20px; 
-    background-color: var(--azul-riviera); 
-    border-radius: 50px; 
-}
-.map-container:hover .map-overlay { 
-    opacity: 1; 
-}
+.extras-container { display: flex; gap: 30px; }
+.extra-card { flex: 1; padding: 30px; border-radius: 15px; }
+.instagram-card { background-color: var(--cinza-claro); }
+.map-card { padding: 0; overflow: hidden; }
+.map-card iframe { border-radius: 15px; display: block; }
 
 footer { background-color: var(--texto-escuro); color: var(--texto-claro); padding: 40px 0 20px; }
 .footer-content { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
@@ -270,29 +177,53 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
 .footer-copy { text-align: center; font-size: 0.9rem; border-top: 1px solid #444; padding-top: 20px; }
 
 @media(max-width: 1200px) {
-    /* Não precisa mais de ajuste aqui */
+    .hero-slider { border-radius: 0; margin-top: 0; margin-bottom: 0; }
 }
 
 @media(max-width: 768px) {
     .top-bar { display: none; }
     html { scroll-padding-top: 80px; }
+
+    .hero-slider {
+        /* Proporção 4:3 para o banner no mobile */
+        aspect-ratio: 4 / 3;
+    }
+
     .navbar { justify-content: flex-end; position: relative; }
     .logo { position: absolute; left: 50%; transform: translateX(-50%); z-index: 1001; }
-    .logo img { height: 60px; }
-    .hamburger { z-index: 1002; display: block; }
-    .nav-links-container { display: none; }
+    .logo img { height: 65px; } /* LOGO MAIOR */
+
+    .hamburger { z-index: 1002; display: block; } /* Garante que o hamburger apareça */
+    
+    .nav-links-container {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--branco);
+        z-index: 1000;
+        transition: 0.3s;
+    }
+    .nav-links-container.active {
+        left: 0;
+    }
+    .nav-menu { 
+        height: 100%;
+        flex-direction: column; 
+        justify-content: center;
+    }
+    
     h2 { font-size: 1.8rem; line-height: 1.3; }
     .proposta-titulo { font-size: 1.8rem; line-height: 1.35 !important; }
-    .nav-menu { position: fixed; left: -100%; top: 0; flex-direction: column; background-color: var(--branco); width: 100%; height: 100vh; text-align: center; transition: 0.3s; z-index: 1000; justify-content: center; }
-    .nav-menu.active { left: 0; }
+
     .nav-item { margin: 20px 0; }
     .hamburger.active .bar:nth-child(2) { opacity: 0; }
     .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    
     .sobre-container, .nivel-ensino, .metodo-suporte-container, .extras-container { flex-direction: column; }
     .sobre-imagem { margin-top: 40px; }
     .nivel-item.image-block { order: -1; margin-bottom: 30px; }
     .cta-titulo { line-height: 1.3; }
-    .map-card h3 { text-align: center; }
-    .map-overlay { opacity: 1; background-color: rgba(0,0,0,0.5); }
 }
