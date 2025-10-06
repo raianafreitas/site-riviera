@@ -7,7 +7,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px; 
+    scroll-padding-top: 120px; 
 }
 
 body {
@@ -52,6 +52,19 @@ h2 {
     border-bottom: 1px solid #e0e0e0;
 }
 
+/* Barra do Topo */
+.top-bar {
+    background-color: var(--azul-riviera);
+    color: var(--branco);
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+}
+.top-bar-content {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
 /* Header e Navegação */
 header {
     background-color: var(--branco);
@@ -90,15 +103,17 @@ header {
 .hero-slider {
     position: relative;
     width: 100%;
-    margin: 0;
+    max-width: 1200px;
+    margin: 20px auto;
     overflow: hidden;
+    border-radius: 15px;
 }
 .slider-container { display: flex; transition: transform 0.5s ease-in-out; }
 .slide { min-width: 100%; }
 .slide img { width: 100%; display: block; }
 .prev, .next { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 16px; color: white; font-weight: bold; font-size: 20px; background-color: rgba(0, 0, 0, 0.3); border: none; user-select: none; transition: background-color 0.3s ease; }
-.prev { left: 15px; }
-.next { right: 15px; }
+.prev { left: 15px; border-radius: 50%; width: 50px; height: 50px; }
+.next { right: 15px; border-radius: 50%; width: 50px; height: 50px; }
 .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.6); }
 
 .progress-bar-container {
@@ -159,7 +174,7 @@ header {
 }
 
 /* Seção CTA Matrículas */
-.cta-section { background-color: var(--azul-riviera); color: var(--texto-claro); text-align: center; padding: 80px 0 60px; } /* Espaço inferior diminuído */
+.cta-section { background-color: var(--azul-riviera); color: var(--texto-claro); text-align: center; padding: 80px 0 60px; }
 .cta-titulo { color: var(--amarelo); padding-top: 20px; }
 .metodo-suporte-container { display: flex; gap: 30px; margin: 40px 0; }
 .metodo-card { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; flex: 1; }
@@ -183,13 +198,13 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
 @media(max-width: 768px) {
     .navbar { justify-content: space-between; position: relative; }
     .logo { position: absolute; left: 50%; transform: translateX(-50%); }
-    .hamburger { z-index: 2; /* Para ficar na frente da logo */ }
+    .hamburger { z-index: 2; }
     .nav-links-container { display: none; }
     
     h2 { font-size: 1.8rem; line-height: 1.3; }
-    .proposta-titulo { font-size: 1.8rem; line-height: 1.35 !important; } /* Força o ajuste */
+    .proposta-titulo { font-size: 1.8rem; line-height: 1.35 !important; }
     
-    .nav-menu { position: fixed; left: -100%; top: 80px; flex-direction: column; background-color: var(--branco); width: 100%; text-align: center; transition: 0.3s; }
+    .nav-menu { position: fixed; left: -100%; top: 80px; flex-direction: column; background-color: var(--branco); width: 100%; text-align: center; transition: 0.3s; z-index: 999; }
     .nav-menu.active { left: 0; }
     .nav-item { margin: 16px 0; }
     .hamburger { display: block; }
