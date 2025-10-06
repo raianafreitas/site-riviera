@@ -104,15 +104,18 @@ header {
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--texto-escuro); transition: all 0.3s ease-in-out; }
 
 /* Carrossel Hero Banner */
+.hero-wrapper {
+    padding: 30px 0;
+}
 .hero-slider {
     position: relative;
     max-width: 1200px;
-    margin: 30px auto;
+    margin: 0 auto;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     line-height: 0;
-    aspect-ratio: 1920 / 580; 
+    aspect-ratio: 792 / 239; 
 }
     
 .slider-container { 
@@ -203,24 +206,20 @@ header {
 .cta-button { display: inline-block; background-color: var(--amarelo); color: var(--texto-escuro); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 20px; transition: transform 0.3s ease; font-size: 1.2rem; }
 .cta-button:hover { transform: scale(1.05); }
 
-/* Extras: Instagram e Mapa - CÓDIGO CORRIGIDO */
+/* Extras: Instagram e Mapa */
 .extras-container { 
     display: flex; 
     gap: 30px; 
-    align-items: flex-start; /* Alinha os cards pelo topo */
+    align-items: flex-start;
 }
 .extra-card { 
     flex: 1; 
     border-radius: 15px; 
+    background-color: var(--cinza-claro);
+    padding: 30px;
 }
 .instagram-card { 
-    background-color: var(--cinza-claro); 
-    padding: 30px;
     text-align: center;
-}
-.map-card { 
-    padding: 30px;
-    background-color: var(--cinza-claro); 
 }
 .map-card h3 {
     text-align: left;
@@ -272,7 +271,10 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
 .footer-copy { text-align: center; font-size: 0.9rem; border-top: 1px solid #444; padding-top: 20px; }
 
 @media(max-width: 1200px) {
-    .hero-slider { border-radius: 0; margin-top: 0; margin-bottom: 0; }
+    .hero-wrapper {
+        padding: 0;
+    }
+    .hero-slider { border-radius: 0; margin-top: 0; margin-bottom: 0; box-shadow: none; }
 }
 
 @media(max-width: 768px) {
