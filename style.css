@@ -113,7 +113,7 @@ header {
     overflow: hidden;
     line-height: 0;
     /* Força a proporção exata que você encontrou */
-    aspect-ratio: 1920 / 580; 
+    aspect-ratio: 792 / 239; 
 }
     
 .slider-container { 
