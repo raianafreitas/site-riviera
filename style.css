@@ -7,7 +7,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 160px; /* Ajustado para a nova altura do menu */
+    scroll-padding-top: 130px; 
 }
 
 body {
@@ -15,6 +15,9 @@ body {
     color: #333;
     line-height: 1.6;
     background-color: #fcfcfd;
+}
+body.menu-open {
+    overflow: hidden;
 }
 
 /* Variáveis de Cor */
@@ -77,14 +80,14 @@ header {
     top: 0;
     z-index: 1000;
     width: 100%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Sombra mais pronunciada para efeito de profundidade */
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 150px; /* ALTURA AUMENTADA */
+    height: 120px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 30px;
@@ -93,7 +96,7 @@ header {
     display: block;
 }
 .logo img {
-    height: 130px; /* LOGO "UM POUCO MAIOR" */
+    height: 100px; 
     width: auto;
 }
 
@@ -147,9 +150,8 @@ header {
 .image-frame-circle { width: 300px; height: 300px; border-radius: 50%; overflow: hidden; position: relative; display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 8px solid var(--branco); }
 .image-frame-circle .aluna-foto { width: 100%; height: 100%; object-fit: cover; }
 .card-container { display: flex; gap: 15px; margin-top: 30px; }
-.card { background: var(--branco); padding: 20px; border-radius: 15px; flex: 1; text-align: left; border: 1px solid #ddd; }
-.card h3 { color: var(--azul-riviera); font-size: 1.2rem; }
-.card p { font-size: 0.9rem; }
+.card { background: var(--branco); padding: 20px; border-radius: 15px; flex: 1; text-align: left; border: 1px solid #ddd; transition: transform 0.3s ease; }
+.card:hover { transform: translateY(-5px); }
 
 /* Seção Proposta */
 #proposta { text-align: center; }
@@ -164,14 +166,36 @@ header {
 .nivel-item.image-block { flex: 1; text-align: center; }
 .nivel-item.image-block .image-frame-circle { width: 250px; height: 250px; }
 
+/* Seção CTA Matrículas */
 .cta-section { background-color: var(--azul-riviera); color: var(--texto-claro); text-align: center; padding: 80px 0; }
 .cta-titulo { color: var(--amarelo); padding-top: 20px; }
 .metodo-suporte-container { display: flex; gap: 30px; margin: 40px 0; }
-.metodo-card { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; flex: 1; }
+.metodo-card { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; flex: 1; transition: transform 0.3s ease; }
+.metodo-card:hover { transform: scale(1.03); }
 .metodo-card h3 { text-align: center; }
 .metodo-card p { text-align: justify; }
-.cta-button { display: inline-block; background-color: var(--amarelo); color: var(--texto-escuro); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 20px; transition: transform 0.3s ease; font-size: 1.2rem; }
-.cta-button:hover { transform: scale(1.05); }
+
+/* Animação do Botão Pulsante */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(254, 187, 21, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(254, 187, 21, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(254, 187, 21, 0); }
+}
+.cta-button { 
+    display: inline-block; 
+    background-color: var(--amarelo); 
+    color: var(--texto-escuro); 
+    padding: 15px 40px; 
+    border-radius: 50px; 
+    text-decoration: none; 
+    font-weight: 700; 
+    margin-top: 20px; 
+    transition: transform 0.3s ease; 
+    font-size: 1.2rem; 
+    animation: pulse 2.5s infinite;
+}
+.cta-button:hover { transform: scale(1.1); animation: none; }
+
 
 /* Overlay para o menu mobile */
 .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 999; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
@@ -195,7 +219,7 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
 /* RESPONSIVIDADE */
 @media(max-width: 768px) {
     .top-bar { display: none; }
-    html { scroll-padding-top: 130px; }
+    html { scroll-padding-top: 110px; }
 
     .hero-slider {
         aspect-ratio: auto;
@@ -207,7 +231,7 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
     .navbar { 
         justify-content: space-between;
         position: relative; 
-        height: 130px;
+        height: 110px;
     }
     .logo { 
         position: absolute; 
@@ -216,7 +240,7 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
         z-index: 1001;
     }
     .logo img { 
-        height: 110px; 
+        height: 90px; 
     }
     .hamburger { 
         z-index: 1002; 
