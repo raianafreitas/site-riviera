@@ -180,13 +180,13 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
     .hero-slider { border-radius: 0; margin-top: 0; margin-bottom: 0; }
 }
 
+/* RESPONSIVIDADE - REESCRITA DO MENU MOBILE */
 @media(max-width: 768px) {
     .top-bar { display: none; }
     html { scroll-padding-top: 80px; }
 
     .hero-slider {
-        /* Proporção 16:10 para o banner no mobile (mais alto) */
-        aspect-ratio: 16 / 10;
+        aspect-ratio: 4 / 3; /* Proporção mais alta para o banner no mobile */
     }
 
     .navbar { 
@@ -208,41 +208,44 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
     }
     
     .nav-links-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: fixed;
-        left: -100%;
-        top: 0;
+        left: 0;
+        top: -100%; /* Começa escondido para cima */
         width: 100%;
         height: 100vh;
-        /* Efeito Blur Azul */
-        background-color: rgba(28, 104, 211, 0.85);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px); /* Para compatibilidade com Safari */
+        background-color: var(--azul-riviera);
         z-index: 1000;
-        transition: 0.3s;
+        transition: top 0.4s ease-in-out;
     }
     .nav-links-container.active {
-        left: 0;
+        top: 0; /* Desliza para baixo */
     }
     .nav-menu { 
-        height: 100%;
         flex-direction: column; 
-        justify-content: center;
-        align-items: center;
     }
     .nav-link {
-        color: var(--branco); /* Texto do menu branco para contraste */
-        font-size: 1.8rem;
+        color: var(--branco);
+        font-size: 2rem; /* Tamanho maior para os links */
+        font-weight: 700;
+    }
+    .nav-link.active {
+        color: var(--amarelo); /* Destaque amarelo para o item ativo */
     }
     
+    .hamburger .bar {
+        background-color: var(--texto-escuro); /* Cor padrão do hamburger */
+    }
+    .hamburger.active .bar {
+        background-color: var(--branco); /* Cor do X quando o menu está aberto */
+    }
+
     h2 { font-size: 1.8rem; line-height: 1.3; }
     .proposta-titulo { font-size: 1.8rem; line-height: 1.35 !important; }
 
-    .nav-item { 
-        margin: 15px 0; /* Espaçamento menor entre os itens */
-    }
-    .hamburger.active .bar {
-        background-color: var(--branco); /* Deixa o X branco para contraste */
-    }
+    .nav-item { margin: 15px 0; }
     .hamburger.active .bar:nth-child(2) { opacity: 0; }
     .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
