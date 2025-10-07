@@ -1,29 +1,44 @@
 // --- Código do Menu Hambúrguer para Mobile ---
 const hamburger = document.querySelector(".hamburger");
 const navMenuContainer = document.querySelector(".nav-links-container");
-const mainContent = document.querySelector("main");
-const footerContent = document.querySelector("footer");
+const body = document.querySelector("body");
+
+// Cria o overlay do menu
+const menuOverlay = document.createElement('div');
+menuOverlay.classList.add('menu-overlay');
+body.appendChild(menuOverlay);
 
 function closeMenu() {
     hamburger.classList.remove("active");
     navMenuContainer.classList.remove("active");
+    menuOverlay.classList.remove("active");
+    body.classList.remove("menu-open");
+}
+
+function openMenu() {
+    hamburger.classList.add("active");
+    navMenuContainer.classList.add("active");
+    menuOverlay.classList.add("active");
+    body.classList.add("menu-open");
 }
 
 hamburger.addEventListener("click", (e) => {
-    e.stopPropagation(); // Impede que o clique no hamburger feche o menu imediatamente
-    hamburger.classList.toggle("active");
-    navMenuContainer.classList.toggle("active");
+    e.stopPropagation();
+    const isActive = hamburger.classList.contains('active');
+    if (isActive) {
+        closeMenu();
+    } else {
+        openMenu();
+    }
 });
 
 document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-    closeMenu();
+    // Não fecha o menu ao clicar, apenas navega
 }));
 
-// Fecha o menu se clicar fora dele
-document.addEventListener('click', (e) => {
-    if (navMenuContainer.classList.contains('active') && !navMenuContainer.contains(e.target)) {
-        closeMenu();
-    }
+// Fecha o menu se clicar no overlay
+menuOverlay.addEventListener('click', () => {
+    closeMenu();
 });
 
 
@@ -80,24 +95,6 @@ if (slideContainer) {
 }
 
 
-// --- Código do Menu Ativo Laranja (Scrollspy) ---
-const sections = document.querySelectorAll("main section");
-const navLi = document.querySelectorAll("header nav ul li a.nav-link");
-
-window.addEventListener("scroll", () => {
-    let current = "inicio";
-
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 150) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLi.forEach((a) => {
-        a.classList.remove("active");
-        if (a.getAttribute("href") == "#" + current) {
-            a.classList.add("active");
-        }
-    });
-});
+// --- Código do Menu Ativo Laranja (Para Múltiplas Páginas) ---
+// A lógica foi movida para o HTML, adicionando a classe 'active' diretamente na página correspondente.
+// Este script não é mais necessário para o menu ativo, mas o mantemos para o menu hamburger e carrossel.
