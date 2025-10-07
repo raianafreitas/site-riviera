@@ -7,7 +7,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 150px; /* Ajustado para a nova altura do menu */
+    scroll-padding-top: 160px; /* Ajustado para a nova altura do menu */
 }
 
 body {
@@ -84,7 +84,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 140px; /* ALTURA AUMENTADA */
+    height: 150px; /* ALTURA AUMENTADA */
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 30px;
@@ -93,7 +93,7 @@ header {
     display: block;
 }
 .logo img {
-    height: 120px; /* LOGO MAIOR AINDA */
+    height: 130px; /* LOGO "UM POUCO MAIOR" */
     width: auto;
 }
 
@@ -195,7 +195,7 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
 /* RESPONSIVIDADE */
 @media(max-width: 768px) {
     .top-bar { display: none; }
-    html { scroll-padding-top: 120px; }
+    html { scroll-padding-top: 130px; }
 
     .hero-slider {
         aspect-ratio: auto;
@@ -207,7 +207,7 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
     .navbar { 
         justify-content: space-between;
         position: relative; 
-        height: 120px;
+        height: 130px;
     }
     .logo { 
         position: absolute; 
@@ -216,7 +216,7 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
         z-index: 1001;
     }
     .logo img { 
-        height: 100px; 
+        height: 110px; 
     }
     .hamburger { 
         z-index: 1002; 
