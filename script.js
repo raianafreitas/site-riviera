@@ -3,7 +3,6 @@ const hamburger = document.querySelector(".hamburger");
 const navMenuContainer = document.querySelector(".nav-links-container");
 const body = document.querySelector("body");
 
-// Cria o overlay do menu
 const menuOverlay = document.createElement('div');
 menuOverlay.classList.add('menu-overlay');
 body.appendChild(menuOverlay);
@@ -33,10 +32,9 @@ hamburger.addEventListener("click", (e) => {
 });
 
 document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-    // Não fecha o menu ao clicar, apenas navega
+    closeMenu();
 }));
 
-// Fecha o menu se clicar no overlay
 menuOverlay.addEventListener('click', () => {
     closeMenu();
 });
@@ -93,21 +91,31 @@ if (slideContainer) {
         });
     }
 }
-        // --- CÓDIGO NOVO: ANIMAÇÃO AO ROLAR ---
+
+
+// --- Código do Menu Ativo Laranja (Para Múltiplas Páginas) ---
+const currentPage = window.location.pathname.split('/').pop();
+const navLinks = document.querySelectorAll("header nav ul li a.nav-link");
+
+navLinks.forEach(link => {
+    const linkPage = link.getAttribute('href');
+    if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+        link.classList.add('active');
+    }
+});
+
+
+// --- CÓDIGO ATUALIZADO: ANIMAÇÃO AO ROLAR (CONTÍNUA) ---
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
+        } else {
+            // Remove a classe quando o elemento sai da tela
+            entry.target.classList.remove('is-visible');
         }
     });
-}, {
-    threshold: 0.1 // A animação começa quando 10% do elemento está visível
 });
 
 const elementsToFadeIn = document.querySelectorAll('.fade-in-element');
 elementsToFadeIn.forEach((el) => observer.observe(el));
-
-// --- Código do Menu Ativo Laranja (Para Múltiplas Páginas) ---
-// A lógica foi movida para o HTML, adicionando a classe 'active' diretamente na página correspondente.
-// Este script não é mais necessário para o menu ativo, mas o mantemos para o menu hamburger e carrossel.
-
