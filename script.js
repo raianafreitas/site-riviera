@@ -1,15 +1,15 @@
 // --- Código do Menu Hambúrguer para Mobile ---
 const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
+const navMenuContainer = document.querySelector(".nav-links-container");
 
 hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
+    navMenuContainer.classList.toggle("active");
 });
 
 document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
     hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
+    navMenuContainer.classList.remove("active");
 }));
 
 
@@ -20,7 +20,7 @@ if (slideContainer) {
     const slides = document.querySelectorAll(".slide");
     const progressBar = document.querySelector('.progress-bar');
     const totalSlides = slides.length;
-    const slideIntervalTime = 5000; // 5 segundos
+    const slideIntervalTime = 5000; 
 
     function updateSlidePosition() {
         slideContainer.style.transition = "transform 0.5s ease-in-out";
@@ -64,3 +64,26 @@ if (slideContainer) {
         });
     }
 }
+
+
+// --- Código do Menu Ativo Laranja (Scrollspy) ---
+const sections = document.querySelectorAll("main section"); // Alvo mais específico
+const navLi = document.querySelectorAll("header nav ul li a.nav-link");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 150) { // Ajuste de sensibilidade
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLi.forEach((a) => {
+        a.classList.remove("active");
+        if (a.getAttribute("href") == "#" + current) {
+            a.classList.add("active");
+        }
+    });
+});
