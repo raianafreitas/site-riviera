@@ -106,7 +106,7 @@ header {
 .hamburger { display: none; cursor: pointer; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--texto-escuro); transition: all 0.3s ease-in-out; }
 
-/* Carrossel Hero Banner */
+/* Carrossel Hero Banner - VERSÃO CONTIDA PARA DESKTOP */
 .hero-slider {
     position: relative;
     max-width: 1200px;
@@ -176,17 +176,25 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
 .footer-social a { color: var(--texto-claro); margin-left: 15px; text-decoration: none; font-weight: 600; }
 .footer-copy { text-align: center; font-size: 0.9rem; border-top: 1px solid #444; padding-top: 20px; }
 
+
+/* RESPONSIVIDADE - VERSÃO FINAL */
 @media(max-width: 1200px) {
-    .hero-slider { border-radius: 0; margin-top: 0; margin-bottom: 0; }
+    .hero-slider { 
+        /* Transforma em largura total em telas menores que o container */
+        border-radius: 0; 
+        margin-top: 0; 
+        margin-bottom: 0; 
+        max-width: none;
+    }
 }
 
-/* RESPONSIVIDADE - REESCRITA DO MENU MOBILE */
 @media(max-width: 768px) {
     .top-bar { display: none; }
     html { scroll-padding-top: 80px; }
 
     .hero-slider {
-        aspect-ratio: 4 / 3; /* Proporção mais alta para o banner no mobile */
+        /* Proporção mais alta para o banner no mobile */
+        aspect-ratio: 16 / 10;
     }
 
     .navbar { 
@@ -207,45 +215,45 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
         display: block; 
     }
     
+    /* MENU LATERAL DESLIZANTE */
     .nav-links-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         position: fixed;
-        left: 0;
-        top: -100%; /* Começa escondido para cima */
-        width: 100%;
+        left: -100%; /* Começa escondido para a esquerda */
+        top: 0;
+        width: 85%; /* Ocupa 85% da tela */
+        max-width: 320px;
         height: 100vh;
         background-color: var(--azul-riviera);
         z-index: 1000;
-        transition: top 0.4s ease-in-out;
+        transition: left 0.4s ease-in-out;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.2);
     }
     .nav-links-container.active {
-        top: 0; /* Desliza para baixo */
+        left: 0; /* Desliza para a tela */
     }
     .nav-menu { 
+        height: 100%;
         flex-direction: column; 
+        justify-content: center;
+        align-items: flex-start; /* Alinha links à esquerda */
+        padding: 0 40px;
     }
     .nav-link {
         color: var(--branco);
-        font-size: 2rem; /* Tamanho maior para os links */
-        font-weight: 700;
+        font-size: 1.5rem; /* Tamanho ajustado */
+        font-weight: 600;
     }
     .nav-link.active {
-        color: var(--amarelo); /* Destaque amarelo para o item ativo */
+        color: var(--amarelo);
     }
     
-    .hamburger .bar {
-        background-color: var(--texto-escuro); /* Cor padrão do hamburger */
-    }
-    .hamburger.active .bar {
-        background-color: var(--branco); /* Cor do X quando o menu está aberto */
-    }
-
     h2 { font-size: 1.8rem; line-height: 1.3; }
     .proposta-titulo { font-size: 1.8rem; line-height: 1.35 !important; }
 
     .nav-item { margin: 15px 0; }
+    .hamburger.active .bar {
+        background-color: var(--azul-riviera); /* Cor do X quando o menu está aberto */
+    }
     .hamburger.active .bar:nth-child(2) { opacity: 0; }
     .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
