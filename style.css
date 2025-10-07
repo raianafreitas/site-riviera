@@ -106,23 +106,53 @@ header {
 .hamburger { display: none; cursor: pointer; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--texto-escuro); transition: all 0.3s ease-in-out; }
 
-/* Carrossel Hero Banner */
+/* Carrossel Hero Banner - VERSÃO FINAL CORRIGIDA E MODERNA (DESKTOP) */
 .hero-slider {
     position: relative;
-    max-width: 1200px;
-    margin: 30px auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%; /* LARGURA TOTAL de ponta a ponta */
+    margin: 0;   /* Remove margens laterais para ocupar 100% */
+    border-radius: 0; /* Bordas retas, sem arredondamento */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
     overflow: hidden;
     line-height: 0;
-    aspect-ratio: 792 / 239; 
+    aspect-ratio: 1920 / 480; /* Recalculado para altura elegante e sem corte */
 }
     
-.slider-container { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
-.slide { min-width: 100%; height: 100%; }
-.slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slider-container { 
+    display: flex; 
+    height: 100%;
+    transition: transform 0.5s ease-in-out; 
+}
+    
+.slide { 
+    min-width: 100%;
+    height: 100%;
+}
+    
+.slide img { 
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    display: block;
+}
 
-.prev, .next { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 16px; color: white; font-weight: bold; font-size: 20px; background-color: rgba(0, 0, 0, 0.4); border: none; user-select: none; transition: background-color 0.3s ease; border-radius: 50%; width: 50px; height: 50px; }
+.prev, .next { 
+    cursor: pointer; 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    padding: 16px; 
+    color: white; 
+    font-weight: bold; 
+    font-size: 20px; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    border: none; 
+    user-select: none; 
+    transition: background-color 0.3s ease; 
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+}
 .prev { left: 20px; }
 .next { right: 20px; }
 .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.7); }
@@ -177,7 +207,7 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
 .footer-copy { text-align: center; font-size: 0.9rem; border-top: 1px solid #444; padding-top: 20px; }
 
 @media(max-width: 1200px) {
-    .hero-slider { border-radius: 0; margin-top: 0; margin-bottom: 0; }
+    /* Nenhuma alteração aqui, o banner desktop já está com 100% de largura e bordas retas */
 }
 
 @media(max-width: 768px) {
@@ -185,15 +215,31 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
     html { scroll-padding-top: 80px; }
 
     .hero-slider {
-        /* Proporção 4:3 para o banner no mobile */
-        aspect-ratio: 4 / 3;
+        /* Remove o aspect-ratio para o banner não ser cortado no mobile */
+        aspect-ratio: auto;
+    }
+    .hero-slider .slide img {
+        /* Garante que a imagem se ajuste e defina a altura, mostrando o banner completo */
+        height: auto; 
     }
 
-    .navbar { justify-content: flex-end; position: relative; }
-    .logo { position: absolute; left: 50%; transform: translateX(-50%); z-index: 1001; }
-    .logo img { height: 65px; } /* LOGO MAIOR */
-
-    .hamburger { z-index: 1002; display: block; } /* Garante que o hamburger apareça */
+    .navbar { 
+        justify-content: space-between; /* Espaçamento entre logo e hamburger */
+        position: relative; 
+    }
+    .logo { 
+        position: absolute; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        z-index: 1001;
+    }
+    .logo img { 
+        height: 70px; /* Logo maior no mobile */
+    }
+    .hamburger { 
+        z-index: 1002; 
+        display: block; 
+    }
     
     .nav-links-container {
         position: fixed;
@@ -212,12 +258,13 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
         height: 100%;
         flex-direction: column; 
         justify-content: center;
+        align-items: center; /* Centraliza os itens do menu */
     }
     
     h2 { font-size: 1.8rem; line-height: 1.3; }
     .proposta-titulo { font-size: 1.8rem; line-height: 1.35 !important; }
 
-    .nav-item { margin: 20px 0; }
+    .nav-item { margin: 20px 0; font-size: 1.5rem; } /* Maior espaçamento e tamanho para links */
     .hamburger.active .bar:nth-child(2) { opacity: 0; }
     .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
