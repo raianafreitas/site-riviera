@@ -84,7 +84,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90px; /* Altura aumentada para a logo maior */
+    height: 100px; /* Altura ajustada */
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 30px;
@@ -93,7 +93,7 @@ header {
     display: block;
 }
 .logo img {
-    height: 70px; /* LOGO MAIOR */
+    height: 80px; /* LOGO MAIOR AINDA */
     width: auto;
 }
 
@@ -135,7 +135,7 @@ header {
 .historia-texto { 
     max-width: 800px; 
     margin: 0 auto 30px; 
-    text-align: justify; /* TEXTO JUSTIFICADO */
+    text-align: justify;
 }
 .cta-button.simple { background-color: transparent; color: var(--azul-riviera); border: 2px solid var(--azul-riviera); padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; }
 .cta-button.simple:hover { background-color: var(--azul-riviera); color: var(--branco); }
@@ -169,8 +169,8 @@ header {
 .cta-titulo { color: var(--amarelo); padding-top: 20px; }
 .metodo-suporte-container { display: flex; gap: 30px; margin: 40px 0; }
 .metodo-card { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; flex: 1; }
-.metodo-card h3 { text-align: center; } /* TÍTULOS CENTRALIZADOS */
-.metodo-card p { text-align: justify; } /* TEXTOS JUSTIFICADOS */
+.metodo-card h3 { text-align: center; }
+.metodo-card p { text-align: justify; }
 .cta-button { display: inline-block; background-color: var(--amarelo); color: var(--texto-escuro); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 20px; transition: transform 0.3s ease; font-size: 1.2rem; }
 .cta-button:hover { transform: scale(1.05); }
 
@@ -208,6 +208,7 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
     .navbar { 
         justify-content: space-between;
         position: relative; 
+        height: 100px;
     }
     .logo { 
         position: absolute; 
@@ -216,7 +217,7 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
         z-index: 1001;
     }
     .logo img { 
-        height: 70px;
+        height: 80px; /* LOGO MAIOR AINDA NO MOBILE */
     }
     .hamburger { 
         z-index: 1002; 
@@ -255,7 +256,7 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
     
     h2 { font-size: 1.8rem; line-height: 1.3; }
     .proposta-titulo { font-size: 1.8rem; line-height: 1.35 !important; }
-    .cta-titulo { line-height: 1.25; } /* ESPAÇAMENTO MENOR NO TÍTULO */
+    .cta-titulo { line-height: 1.25; }
 
     .nav-item { margin: 10px 0; }
     
