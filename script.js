@@ -1,16 +1,30 @@
 // --- Código do Menu Hambúrguer para Mobile ---
 const hamburger = document.querySelector(".hamburger");
 const navMenuContainer = document.querySelector(".nav-links-container");
+const mainContent = document.querySelector("main");
+const footerContent = document.querySelector("footer");
 
-hamburger.addEventListener("click", () => {
+function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenuContainer.classList.remove("active");
+}
+
+hamburger.addEventListener("click", (e) => {
+    e.stopPropagation(); // Impede que o clique no hamburger feche o menu imediatamente
     hamburger.classList.toggle("active");
     navMenuContainer.classList.toggle("active");
 });
 
 document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMenuContainer.classList.remove("active");
+    closeMenu();
 }));
+
+// Fecha o menu se clicar fora dele
+document.addEventListener('click', (e) => {
+    if (navMenuContainer.classList.contains('active') && !navMenuContainer.contains(e.target)) {
+        closeMenu();
+    }
+});
 
 
 // --- Código do Carrossel de Banners ---
@@ -67,15 +81,15 @@ if (slideContainer) {
 
 
 // --- Código do Menu Ativo Laranja (Scrollspy) ---
-const sections = document.querySelectorAll("main section"); // Alvo mais específico
+const sections = document.querySelectorAll("main section");
 const navLi = document.querySelectorAll("header nav ul li a.nav-link");
 
 window.addEventListener("scroll", () => {
-    let current = "";
+    let current = "inicio";
 
     sections.forEach((section) => {
         const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 150) { // Ajuste de sensibilidade
+        if (pageYOffset >= sectionTop - 150) {
             current = section.getAttribute("id");
         }
     });
