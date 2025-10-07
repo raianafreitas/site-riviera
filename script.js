@@ -93,8 +93,21 @@ if (slideContainer) {
         });
     }
 }
+        // --- CÓDIGO NOVO: ANIMAÇÃO AO ROLAR ---
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+        }
+    });
+}, {
+    threshold: 0.1 // A animação começa quando 10% do elemento está visível
+});
 
+const elementsToFadeIn = document.querySelectorAll('.fade-in-element');
+elementsToFadeIn.forEach((el) => observer.observe(el));
 
 // --- Código do Menu Ativo Laranja (Para Múltiplas Páginas) ---
 // A lógica foi movida para o HTML, adicionando a classe 'active' diretamente na página correspondente.
 // Este script não é mais necessário para o menu ativo, mas o mantemos para o menu hamburger e carrossel.
+
