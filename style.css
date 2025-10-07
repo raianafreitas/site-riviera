@@ -10,8 +10,11 @@ html {
     scroll-padding-top: 120px; 
 }
 
-body.menu-open {
-    overflow: hidden;
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #fcfcfd;
 }
 
 /* Variáveis de Cor */
@@ -81,14 +84,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: 90px; /* Altura aumentada para a logo maior */
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 30px;
 }
-
+.nav-links-container {
+    display: block;
+}
 .logo img {
-    height: 60px; 
+    height: 70px; /* LOGO MAIOR */
     width: auto;
 }
 
@@ -101,16 +106,16 @@ header {
 .hamburger { display: none; cursor: pointer; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--texto-escuro); transition: all 0.3s ease-in-out; }
 
-/* Carrossel Hero Banner - LARGURA TOTAL, RETO, COM SOMBRA */
+/* Carrossel Hero Banner */
 .hero-slider {
     position: relative;
-    width: 100%;
-    margin: 0;
-    border-radius: 0; /* RETO */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+    margin: 30px auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     line-height: 0;
-    aspect-ratio: 1920 / 480; 
+    aspect-ratio: 792 / 239; 
 }
     
 .slider-container { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
@@ -125,12 +130,17 @@ header {
 .progress-bar-container { position: absolute; bottom: 0; left: 0; width: 100%; height: 5px; background-color: rgba(0, 0, 0, 0.2); }
 .progress-bar { height: 100%; background-color: var(--amarelo); width: 0%; }
 
-/* Seções Restantes... */
+/* Seção História Prévia */
 #historia-previa { text-align: center; }
-.historia-texto { max-width: 800px; margin: 0 auto 30px; }
+.historia-texto { 
+    max-width: 800px; 
+    margin: 0 auto 30px; 
+    text-align: justify; /* TEXTO JUSTIFICADO */
+}
 .cta-button.simple { background-color: transparent; color: var(--azul-riviera); border: 2px solid var(--azul-riviera); padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; }
 .cta-button.simple:hover { background-color: var(--azul-riviera); color: var(--branco); }
 
+/* Seção Sobre */
 .sobre-container { display: flex; align-items: center; gap: 40px; }
 .sobre-texto { flex: 1.2; }
 .sobre-imagem { flex: 1; text-align: center; }
@@ -141,6 +151,7 @@ header {
 .card h3 { color: var(--azul-riviera); font-size: 1.2rem; }
 .card p { font-size: 0.9rem; }
 
+/* Seção Proposta */
 #proposta { text-align: center; }
 .proposta-titulo { line-height: 1.3; }
 #proposta .texto-justificado { max-width: 800px; margin: 0 auto 20px; text-align: justify; }
@@ -153,30 +164,19 @@ header {
 .nivel-item.image-block { flex: 1; text-align: center; }
 .nivel-item.image-block .image-frame-circle { width: 250px; height: 250px; }
 
+/* Seção CTA Matrículas */
 .cta-section { background-color: var(--azul-riviera); color: var(--texto-claro); text-align: center; padding: 80px 0; }
 .cta-titulo { color: var(--amarelo); padding-top: 20px; }
 .metodo-suporte-container { display: flex; gap: 30px; margin: 40px 0; }
 .metodo-card { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; flex: 1; }
+.metodo-card h3 { text-align: center; } /* TÍTULOS CENTRALIZADOS */
+.metodo-card p { text-align: justify; } /* TEXTOS JUSTIFICADOS */
 .cta-button { display: inline-block; background-color: var(--amarelo); color: var(--texto-escuro); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 20px; transition: transform 0.3s ease; font-size: 1.2rem; }
 .cta-button:hover { transform: scale(1.05); }
 
 /* Overlay para o menu mobile */
-.menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-.menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
+.menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 999; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+.menu-overlay.active { opacity: 1; visibility: visible; }
 
 .extras-container { display: flex; gap: 30px; }
 .extra-card { flex: 1; padding: 30px; border-radius: 15px; }
@@ -188,6 +188,10 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
 .footer-content { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
 .footer-social a { color: var(--texto-claro); margin-left: 15px; text-decoration: none; font-weight: 600; }
 .footer-copy { text-align: center; font-size: 0.9rem; border-top: 1px solid #444; padding-top: 20px; }
+
+@media(max-width: 1200px) {
+    .hero-slider { border-radius: 0; margin-top: 0; margin-bottom: 0; }
+}
 
 /* RESPONSIVIDADE */
 @media(max-width: 768px) {
@@ -251,6 +255,7 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
     
     h2 { font-size: 1.8rem; line-height: 1.3; }
     .proposta-titulo { font-size: 1.8rem; line-height: 1.35 !important; }
+    .cta-titulo { line-height: 1.25; } /* ESPAÇAMENTO MENOR NO TÍTULO */
 
     .nav-item { margin: 10px 0; }
     
@@ -269,5 +274,4 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
     .sobre-container, .nivel-ensino, .metodo-suporte-container, .extras-container { flex-direction: column; }
     .sobre-imagem { margin-top: 40px; }
     .nivel-item.image-block { order: -1; margin-bottom: 30px; }
-    .cta-titulo { line-height: 1.3; }
 }
