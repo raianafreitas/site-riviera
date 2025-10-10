@@ -90,32 +90,40 @@ if (slideContainer) {
             resetInterval();
         });
     }
+
+    // Inicializa a primeira barra de progresso
+    updateSlidePosition();
 }
 
 
 // --- Código do Menu Ativo Laranja (Para Múltiplas Páginas) ---
-const currentPage = window.location.pathname.split('/').pop();
-const navLinks = document.querySelectorAll("header nav ul li a.nav-link");
+// Adia a execução para garantir que a página carregou
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll("header nav ul li a.nav-link");
 
-navLinks.forEach(link => {
-    const linkPage = link.getAttribute('href');
-    if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
-        link.classList.add('active');
-    }
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        }
+    });
 });
 
 
-// --- CÓDIGO ATUALIZADO: ANIMAÇÃO AO ROLAR (CONTÍNUA) ---
+// --- [MUDANÇA APLICADA] ANIMAÇÃO AO ROLAR (CONTÍNUA) ---
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
         } else {
-            // Remove a classe quando o elemento sai da tela
+            // Remove a classe quando o elemento sai da tela para re-animar
             entry.target.classList.remove('is-visible');
         }
     });
 });
 
-const elementsToFadeIn = document.querySelectorAll('.fade-in-element');
+// Seleciona todos os elementos que precisam de fade-in, incluindo os novos contêineres
+const elementsToFadeIn = document.querySelectorAll('.fade-in-element, .animated-text-container, .card-container, .nivel-details');
 elementsToFadeIn.forEach((el) => observer.observe(el));
