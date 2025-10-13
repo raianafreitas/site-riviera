@@ -7,7 +7,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 130px; 
+    scroll-padding-top: 100px; 
 }
 
 body {
@@ -56,7 +56,7 @@ h2 {
     border-bottom: 1px solid #e0e0e0;
 }
 
-/* --- [MUDANÇA 1] Barra do Topo Impactante --- */
+/* Barra do Topo */
 .top-bar {
     background: linear-gradient(90deg, var(--azul-riviera) 0%, #1754a6 100%);
     color: var(--branco);
@@ -86,7 +86,7 @@ h2 {
     transform: translateY(-2px);
 }
 
-/* --- [MUDANÇA 2] Header e Logo Maior --- */
+/* Header e Navegação */
 header {
     background-color: var(--branco);
     border-bottom: 1px solid #eee;
@@ -100,13 +100,17 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 130px; /* Aumentado */
+    height: 120px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 30px;
 }
+/* --- [CORREÇÃO 4] Logo com tamanho ajustado --- */
+.logo {
+    transition: all 0.3s ease; /* Para o efeito de sumir */
+}
 .logo img {
-    height: 110px; /* Aumentado */
+    height: 80px; /* Tamanho elegante para desktop */
     width: auto;
 }
 .nav-links-container { display: block; }
@@ -117,20 +121,18 @@ header {
 .hamburger { display: none; cursor: pointer; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--texto-escuro); transition: all 0.3s ease-in-out; }
 
-/* --- [MUDANÇA 3] Carrossel Hero Banner Ajustado --- */
-.hero-wrapper {
-    background-color: var(--cinza-claro);
-}
+
+/* --- [CORREÇÃO 2] Novo Banner contido e com aspect-ratio --- */
 .hero-slider {
     position: relative;
-    max-width: 100%;
-    margin: 30px auto;
+    margin: 0 auto;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     line-height: 0;
-    height: 350px;
-    max-height: 40vh;
+    aspect-ratio: 1200 / 350; /* Proporção profissional, evita cortes */
+    background-color: #e9eef2; /* A "sombra" de pré-carregamento */
+    min-height: 150px;
 }
 .slider-container { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
 .slide { min-width: 100%; height: 100%; }
@@ -141,6 +143,7 @@ header {
 .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.7); }
 .progress-bar-container { position: absolute; bottom: 0; left: 0; width: 100%; height: 5px; background-color: rgba(0, 0, 0, 0.2); }
 .progress-bar { height: 100%; background-color: var(--amarelo); width: 0%; }
+
 
 /* Seção História Prévia */
 #historia-previa { text-align: center; }
@@ -158,12 +161,9 @@ header {
 .card { background: var(--branco); padding: 20px; border-radius: 15px; flex: 1; text-align: left; border: 1px solid #ddd; transition: transform 0.3s ease; }
 .card:hover { transform: translateY(-5px); }
 
-/* Seção Proposta */
+/* Seção Proposta e Níveis */
 #proposta { text-align: center; }
-.proposta-titulo { line-height: 1.3; }
 #proposta .texto-justificado { max-width: 800px; margin: 0 auto 20px; text-align: justify; }
-
-/* Níveis de Ensino */
 .bg-yellow { background-color: var(--amarelo); }
 .bg-yellow .container { background: var(--branco); border-radius: 20px; padding: 50px; }
 .nivel-ensino { display: flex; align-items: center; gap: 40px; }
@@ -181,51 +181,18 @@ header {
 .metodo-card h3 { text-align: center; }
 .metodo-card p { text-align: justify; }
 
-/* --- [MUDANÇA 4] Estilos para os Dois Botões CTA --- */
+/* Estilos para os Dois Botões CTA */
 @keyframes pulse {
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(254, 187, 21, 0.7); }
     70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(254, 187, 21, 0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(254, 187, 21, 0); }
 }
-.cta-buttons-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
-}
-.cta-button {
-    display: inline-block;
-    padding: 15px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    text-align: center;
-    white-space: nowrap;
-}
-.cta-button.primary {
-    background-color: var(--amarelo);
-    color: var(--texto-escuro);
-    animation: pulse 2.5s infinite;
-    border: 2px solid var(--amarelo);
-}
-.cta-button.primary:hover {
-    transform: scale(1.05);
-    animation: none;
-    box-shadow: 0 0 15px rgba(254, 187, 21, 0.6);
-}
-.cta-button.secondary {
-    background-color: transparent;
-    color: var(--branco);
-    border: 2px solid var(--branco);
-}
-.cta-button.secondary:hover {
-    background-color: var(--branco);
-    color: var(--azul-riviera);
-    transform: scale(1.05);
-}
+.cta-buttons-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px; }
+.cta-button { display: inline-block; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem; transition: all 0.3s ease; text-align: center; white-space: nowrap; }
+.cta-button.primary { background-color: var(--amarelo); color: var(--texto-escuro); animation: pulse 2.5s infinite; border: 2px solid var(--amarelo); }
+.cta-button.primary:hover { transform: scale(1.05); animation: none; box-shadow: 0 0 15px rgba(254, 187, 21, 0.6); }
+.cta-button.secondary { background-color: transparent; color: var(--branco); border: 2px solid var(--branco); }
+.cta-button.secondary:hover { background-color: var(--branco); color: var(--azul-riviera); transform: scale(1.05); }
 
 /* Outras Seções e Footer */
 .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 999; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
@@ -244,41 +211,45 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
 .footer-copy { text-align: center; font-size: 0.9rem; border-top: 1px solid #444; padding-top: 20px; }
 
 /* RESPONSIVIDADE */
-@media(max-width: 1200px) {
-    .hero-slider { border-radius: 0; margin-top: 0; margin-bottom: 0; }
-}
-
 @media(max-width: 768px) {
     .top-bar { display: none; }
-    html { scroll-padding-top: 120px; }
+    html { scroll-padding-top: 100px; }
 
-    .navbar { height: 120px; }
-    .logo img { height: 95px; }
-    
+    /* --- [CORREÇÃO 4 e 5] Posição da Logo e Menu Mobile --- */
+    .navbar {
+        height: 100px;
+        position: relative;
+    }
+    .logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1001;
+    }
+    .logo img {
+        height: 70px; /* Logo um pouco menor no mobile */
+    }
+    .hamburger {
+        z-index: 1002;
+        display: block;
+        position: absolute;
+        left: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
     .hero-slider {
-        height: 220px;
-        max-height: 35vh;
+        border-radius: 10px;
+        aspect-ratio: 4 / 3; /* Proporção mais alta para mobile */
     }
-    .hero-slider .slide img {
-        height: 100%;
-        object-position: center;
-    }
-    .prev, .next {
-        width: 40px; height: 40px; font-size: 16px; padding: 0;
-    }
-    .prev { left: 10px; }
-    .next { right: 10px; }
 
-    .nav-links-container { display: block; position: fixed; left: 5%; right: 5%; top: 20px; width: 90%; max-width: 500px; margin: 0 auto; background-color: var(--branco); z-index: 1001; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: translateY(-150%); transition: transform 0.4s ease-in-out; }
-    .nav-links-container.active { transform: translateY(0); }
-    .nav-menu { padding: 80px 0 40px; flex-direction: column; align-items: center; }
-    .nav-link { color: var(--texto-escuro); font-size: 1.5rem; font-weight: 600; }
-    h2 { font-size: 1.8rem; line-height: 1.3; }
-    .proposta-titulo { font-size: 1.8rem; line-height: 1.35 !important; }
-    .cta-titulo { line-height: 1.25; }
-    .nav-item { margin: 10px 0; }
-    .hamburger { z-index: 1002; display: block; position: fixed; top: 30px; right: 30px; }
-    .hamburger.active .bar { background-color: var(--texto-escuro); }
+    .nav-links-container { display: block; position: fixed; left: 0; top: 0; width: 100%; max-width: 400px; height: 100%; background-color: var(--branco); z-index: 1001; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: translateX(-100%); transition: transform 0.4s ease-in-out; }
+    .nav-links-container.active { transform: translateX(0); }
+    .nav-menu { padding-top: 100px; flex-direction: column; align-items: stretch; } /* Estilo novo */
+    .nav-item { margin: 0; width: 100%; text-align: left; border-bottom: 1px solid #eee; } /* Estilo novo */
+    .nav-link { font-size: 1.2rem; font-weight: 600; display: block; padding: 20px 30px; } /* Estilo novo */
+    
     .hamburger.active .bar:nth-child(2) { opacity: 0; }
     .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
@@ -288,59 +259,23 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
     .nivel-item.image-block { order: -1; margin-bottom: 30px; }
     .footer-content { flex-direction: column; gap: 20px; }
 
-    .cta-buttons-wrapper {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .cta-button {
-        width: 100%;
-        font-size: 1rem;
-        padding: 12px 20px;
-    }
+    .cta-buttons-wrapper { flex-direction: column; gap: 15px; }
+    .cta-button { width: 100%; font-size: 1rem; padding: 12px 20px; }
+    h2 { font-size: 1.8rem; }
 }
 
-/* --- [MUDANÇA 5] Animações de Fade-in e Cascata --- */
-.fade-in-element {
+/* --- [CORREÇÃO 5] Efeito para "engolir" a logo --- */
+.logo.hidden {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.fade-in-element.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -50%) scale(0.8);
 }
 
-.animated-text-container .fade-in-element,
-.card-container .fade-in-element,
-.nivel-details .fade-in-element {
-    transition-delay: 0s !important;
-}
-.animated-text-container.is-visible .fade-in-element:nth-child(1) { transition-delay: 0.1s; }
-.animated-text-container.is-visible .fade-in-element:nth-child(2) { transition-delay: 0.2s; }
-.animated-text-container.is-visible .fade-in-element:nth-child(3) { transition-delay: 0.3s; }
-.animated-text-container.is-visible .fade-in-element:nth-child(4) { transition-delay: 0.4s; }
+/* Animações de Fade-in */
+.fade-in-element { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-in-element.is-visible { opacity: 1; transform: translateY(0); }
 
-.card-container.is-visible .fade-in-element:nth-child(1) { transition-delay: 0.3s; }
-.card-container.is-visible .fade-in-element:nth-child(2) { transition-delay: 0.4s; }
-
-.nivel-details.is-visible .fade-in-element:nth-child(1) { transition-delay: 0.2s; }
-.nivel-details.is-visible .fade-in-element:nth-child(2) { transition-delay: 0.3s; }
-.nivel-details.is-visible .fade-in-element:nth-child(3) { transition-delay: 0.4s; }
-.nivel-details.is-visible .fade-in-element:nth-child(4) { transition-delay: 0.5s; }
-.nivel-details.is-visible .fade-in-element:nth-child(5) { transition-delay: 0.6s; }
-.nivel-details.is-visible .fade-in-element:nth-child(6) { transition-delay: 0.7s; }
-
-/* --- [MUDANÇA 6] Scrollbar Laranja Transparente --- */
-::-webkit-scrollbar {
-    width: 12px;
-}
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-::-webkit-scrollbar-thumb {
-    background: rgba(255, 126, 44, 0.7); /* Laranja com 70% de opacidade */
-    border-radius: 6px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--laranja); /* Laranja sólido ao passar o mouse */
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: rgba(255, 126, 44, 0.7); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--laranja); }
