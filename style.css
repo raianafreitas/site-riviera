@@ -100,7 +100,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px; /* Altura ajustada */
+    height: 100px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 30px;
@@ -109,7 +109,7 @@ header {
     transition: all 0.3s ease;
 }
 .logo img {
-    height: 75px; /* Tamanho elegante para desktop */
+    height: 75px;
     width: auto;
 }
 .nav-links-container { display: block; }
@@ -118,26 +118,25 @@ header {
 .nav-link { text-decoration: none; color: var(--texto-escuro); font-weight: 600; transition: color 0.3s ease; }
 .nav-link:hover, .nav-link.active { color: var(--laranja); }
 .hamburger { display: none; cursor: pointer; }
-.bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background-color: var(--laranja); /* [CORREÇÃO 3] Cor do menu */ }
+.bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background-color: var(--laranja); /* Cor do menu */ }
 
 
-/* --- [CORREÇÃO 4] BANNER FULL-WIDTH --- */
+/* --- BANNER FULL-WIDTH --- */
 .hero-wrapper {
     width: 100%;
-    background-color: #e9eef2; /* Cor de fundo "sombra" de pré-carregamento */
+    background-color: #e9eef2; /* "Sombra" de pré-carregamento */
 }
 .hero-slider {
     position: relative;
-    max-width: 100%; /* Garante que o slider ocupe o wrapper */
+    max-width: 100%;
     margin: 0 auto;
     overflow: hidden;
     line-height: 0;
-    height: 350px; /* Altura controlada para desktop */
+    height: 350px;
 }
 .slider-container { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
 .slide { min-width: 100%; height: 100%; }
 .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
 .prev, .next { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 16px; color: white; font-weight: bold; font-size: 20px; background-color: rgba(0, 0, 0, 0.4); border: none; user-select: none; transition: background-color 0.3s ease; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; z-index: 10; }
 .prev { left: 30px; }
 .next { right: 30px; }
@@ -208,9 +207,14 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
 
     .navbar { height: 90px; position: relative; }
     .logo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1001; }
-    .logo img { height: 55px; /* [CORREÇÃO 2] Logo mobile menor */ }
+    .logo img { height: 55px; /* Logo mobile sutil */ }
     .hamburger { z-index: 1002; display: block; position: absolute; left: 20px; top: 50%; transform: translateY(-50%); }
-    .hero-slider { height: 250px; /* Altura controlada para mobile */ }
+    
+    /* --- CORREÇÃO FINAL DO BANNER MOBILE --- */
+    .hero-slider { 
+        height: auto; /* Remove altura fixa */
+        aspect-ratio: 16 / 9; /* Proporção de vídeo, mais panorâmica */
+    }
     .prev { left: 15px; } .next { right: 15px; }
 
     .nav-links-container { display: block; position: fixed; left: 0; top: 0; width: 100%; max-width: 320px; height: 100%; background-color: var(--branco); z-index: 1001; box-shadow: 5px 0 20px rgba(0,0,0,0.1); transform: translateX(-100%); transition: transform 0.4s ease-in-out; }
