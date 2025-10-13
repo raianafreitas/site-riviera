@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem-vindo à Escola Riviera</title>
     <link rel="icon" type="image/png" href="assets/favicon.png.png">
-    <link rel="stylesheet" href="style.css?v=3"> 
+    <link rel="stylesheet" href="style.css?v=5"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,6 +19,11 @@
     </div>
     <header>
         <nav class="navbar">
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
             <a href="index.html" class="logo">
                 <img src="assets/logo-principal.png.png" alt="Logo Escola Riviera">
             </a>
@@ -31,28 +36,25 @@
                     <li class="nav-item"><a href="contato.html" class="nav-link">Contato</a></li>
                 </ul>
             </div>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
         </nav>
     </header>
 
     <main>
-        <div class="hero-wrapper">
-            <section id="inicio" class="hero-slider">
-                <div class="slider-container">
-                    <div class="slide"><img src="assets/banner-01.png.png" alt="Banner Matrículas Abertas 2026: Fale Conosco!"></div>
-                    <div class="slide"><img src="assets/banner-02.png.png" alt="Banner Da educação infantil ao 4º ano"></div>
-                    <div class="slide"><img src="assets/banner-03.png.png" alt="Banner Mais que ensino: apoio, estrutura e confiança"></div>
-                </div>
-                <button class="prev">❮</button>
-                <button class="next">❯</button>
-                <div class="progress-bar-container">
-                    <div class="progress-bar"></div>
-                </div>
-            </section>
+        <div class="content-section" style="padding-top: 30px; padding-bottom: 0;">
+            <div class="container">
+                <section id="inicio" class="hero-slider">
+                    <div class="slider-container">
+                        <div class="slide"><img src="assets/banner-01.png.png" alt="Banner Matrículas Abertas"></div>
+                        <div class="slide"><img src="assets/banner-02.png.png" alt="Banner Educação Infantil ao 4º ano"></div>
+                        <div class="slide"><img src="assets/banner-03.png.png" alt="Banner Ensino com Apoio"></div>
+                    </div>
+                    <button class="prev">❮</button>
+                    <button class="next">❯</button>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                </section>
+            </div>
         </div>
 
         <section id="historia-previa" class="content-section">
@@ -93,7 +95,7 @@
                 <div class="extra-card map-card fade-in-element">
                     <h3>Nossa Localização</h3>
                     <div class="map-container">
-                        <a href="https://www.google.com/maps/search/?api=1&query=Rua+Floresta+Azul,+289,+Vida+Nova,+Lauro+de+Freitas" target="_blank" class="map-link">
+                        <a href="http://googleusercontent.com/maps.google.com/5" target="_blank" class="map-link">
                             <img src="assets/mapa.png" alt="Mapa da localização da Escola Riviera">
                             <div class="map-overlay"><span>Ver no Google Maps</span></div>
                         </a>
@@ -120,6 +122,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=5"></script>
 </body>
 </html>
