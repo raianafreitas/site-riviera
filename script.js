@@ -2,16 +2,19 @@
 const hamburger = document.querySelector(".hamburger");
 const navMenuContainer = document.querySelector(".nav-links-container");
 const body = document.querySelector("body");
+const logo = document.querySelector(".logo"); // Variável da logo adicionada
 
 const menuOverlay = document.createElement('div');
 menuOverlay.classList.add('menu-overlay');
 body.appendChild(menuOverlay);
 
+// --- [CORREÇÃO 5] Funções de menu atualizadas ---
 function closeMenu() {
     hamburger.classList.remove("active");
     navMenuContainer.classList.remove("active");
     menuOverlay.classList.remove("active");
     body.classList.remove("menu-open");
+    if (logo) logo.classList.remove("hidden"); // Esconde a logo
 }
 
 function openMenu() {
@@ -19,6 +22,7 @@ function openMenu() {
     navMenuContainer.classList.add("active");
     menuOverlay.classList.add("active");
     body.classList.add("menu-open");
+    if (logo) logo.classList.add("hidden"); // Mostra a logo
 }
 
 hamburger.addEventListener("click", (e) => {
@@ -90,14 +94,11 @@ if (slideContainer) {
             resetInterval();
         });
     }
-
-    // Inicializa a primeira barra de progresso
     updateSlidePosition();
 }
 
 
-// --- Código do Menu Ativo Laranja (Para Múltiplas Páginas) ---
-// Adia a execução para garantir que a página carregou
+// --- Código do Menu Ativo Laranja ---
 document.addEventListener('DOMContentLoaded', () => {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll("header nav ul li a.nav-link");
@@ -112,18 +113,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// --- [MUDANÇA APLICADA] ANIMAÇÃO AO ROLAR (CONTÍNUA) ---
+// --- ANIMAÇÃO AO ROLAR ---
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
         } else {
-            // Remove a classe quando o elemento sai da tela para re-animar
             entry.target.classList.remove('is-visible');
         }
     });
 });
 
-// Seleciona todos os elementos que precisam de fade-in, incluindo os novos contêineres
-const elementsToFadeIn = document.querySelectorAll('.fade-in-element, .animated-text-container, .card-container, .nivel-details');
+const elementsToFadeIn = document.querySelectorAll('.fade-in-element');
 elementsToFadeIn.forEach((el) => observer.observe(el));
