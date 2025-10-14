@@ -29,6 +29,8 @@ body.menu-open {
     --texto-escuro: #2c3e50;
     --texto-claro: #fcfcfd;
     --cinza-claro: #f4f7f6;
+    /* Nova cor para a navbar mobile (similar ao EPE) */
+    --navbar-mobile-bg: #f7f9fc; /* Um branco levemente azulado */
 }
 
 /* Estilos Gerais */
@@ -129,7 +131,10 @@ header {
 .hero-slider {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9; /* FORÇA A PROPORÇÃO PERFEITA 16:9 */
+    /* No desktop, limita a altura para ser como o EPE, mantendo a proporção */
+    max-height: 450px; /* Altura máxima similar ao EPE no desktop */
+    aspect-ratio: 16 / 9; /* Mantém a proporção do seu banner 1200x675 */
+    margin: 0 auto; /* Centraliza */
     overflow: hidden;
     line-height: 0;
 }
@@ -250,10 +255,19 @@ footer { background-color: var(--texto-escuro); color: var(--texto-claro); paddi
     .top-bar { display: none; }
     html { scroll-padding-top: 90px; }
 
-    .navbar { height: 90px; position: relative; }
+    .navbar { 
+        height: 90px; 
+        position: relative; 
+        background-color: var(--navbar-mobile-bg); /* Fundo da navbar mobile */
+    }
     .logo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1001; }
     .logo img { height: 55px; }
     .hamburger { z-index: 1002; display: block; position: absolute; left: 20px; top: 50%; transform: translateY(-50%); }
+
+    /* Ajustes específicos para o banner no mobile */
+    .hero-slider {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Sombra no banner mobile */
+    }
 
     .prev { left: 15px; } 
     .next { right: 15px; }
