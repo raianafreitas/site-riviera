@@ -2,19 +2,18 @@
 const hamburger = document.querySelector(".hamburger");
 const navMenuContainer = document.querySelector(".nav-links-container");
 const body = document.querySelector("body");
-const logo = document.querySelector(".logo"); // Variável da logo adicionada
+const logo = document.querySelector(".logo");
 
 const menuOverlay = document.createElement('div');
 menuOverlay.classList.add('menu-overlay');
 body.appendChild(menuOverlay);
 
-// --- [CORREÇÃO 5] Funções de menu atualizadas ---
 function closeMenu() {
     hamburger.classList.remove("active");
     navMenuContainer.classList.remove("active");
     menuOverlay.classList.remove("active");
     body.classList.remove("menu-open");
-    if (logo) logo.classList.remove("hidden"); // Esconde a logo
+    if (logo) logo.classList.remove("hidden");
 }
 
 function openMenu() {
@@ -22,7 +21,7 @@ function openMenu() {
     navMenuContainer.classList.add("active");
     menuOverlay.classList.add("active");
     body.classList.add("menu-open");
-    if (logo) logo.classList.add("hidden"); // Mostra a logo
+    if (logo) logo.classList.add("hidden");
 }
 
 hamburger.addEventListener("click", (e) => {
